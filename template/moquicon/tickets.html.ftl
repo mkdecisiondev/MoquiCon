@@ -20,7 +20,7 @@
         <img id="spinner" class="product-spinner" src="/store/assets/spinner.gif">
     </div>  -->
     <div class="row mt-2">
-        <div class="col col-lg-4 col-sm-12 col-12">
+        <div class="col-sm-12 col-md-6">
             <p>
                 <span class="product-title">${product.productName}</span>
             </p>
@@ -30,7 +30,7 @@
                 </#if>
             </div>
         </div>
-        <div class="col col-lg-3">
+        <div class="col-sm-12 col-md-6">
             <form class="card cart-div" method="post" action="/moquicon/tickets/addToCart">
                 <div>
                     <#if product.listPrice??>
@@ -42,7 +42,7 @@
                     <div class="form-group col">
                         <div class="cart-form-price">
                             <p>
-                                <span class="price-text">${product.price}</span>
+                                <span class="price-text">$${product.price}</span>
                                 <#if product.listPrice??>
                                     <span>
                                         <span class="product-listprice-text">was</span>

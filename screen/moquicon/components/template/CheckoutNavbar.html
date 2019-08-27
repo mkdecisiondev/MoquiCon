@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-dark order-navbar bg-dark">
     <div class="d-flex flex-column moqui-navbar order-navbar">
   	    <div class="container d-flex flex-row main-navbar">
-            <a class="navbar-brand" href="/store">
+            <a class="navbar-brand" href="/moquicon">
                 <img height="65px" class="moqui-logo" src="/moquicon/assets/moqui-logo.svg" alt="">
-                <span class="font-italic order-navbar-title">POP Shop</span>
+                <span class="font-italic order-navbar-title">MoquiCon</span>
             </a>
             <div class="navbar-collapse collapse" id="nav_collapse">
                 <ul class="navbar-nav ml-auto">
@@ -19,14 +19,14 @@
                         <span class="order-navbar-text" :class="{ 'order-navbar-text-red': isCurrentStep(STEP_SHIPPING), 'order-navbar-text-blue': isCompleteStep(STEP_SHIPPING) }">Shipping</span>
                     </span> 
                     <hr width="100px" class="order-navbar-hr">
-                    <span class="order-navbar-circle" :class="{ 'order-navbar-circle-red': isCurrentStep(STEP_BILLING), 'order-navbar-circle-blue': isCompleteStep(STEP_BILLING) }">
-                        <span v-if="isIncompleteStep(STEP_BILLING)">3</span>
-                        <span v-if="isCompleteStep(STEP_BILLING)"><i class="fa fa-check"></i></span>
-                        <span class="order-navbar-text" :class="{ 'order-navbar-text-red': isCurrentStep(STEP_BILLING), 'order-navbar-text-blue': isCompleteStep(STEP_BILLING) }">Payment</span>
-                    </span>
-                    <hr width="100px" class="order-navbar-hr">
+<!--                    <span class="order-navbar-circle" :class="{ 'order-navbar-circle-red': isCurrentStep(STEP_BILLING), 'order-navbar-circle-blue': isCompleteStep(STEP_BILLING) }">-->
+<!--                        <span v-if="isIncompleteStep(STEP_BILLING)">3</span>-->
+<!--                        <span v-if="isCompleteStep(STEP_BILLING)"><i class="fa fa-check"></i></span>-->
+<!--                        <span class="order-navbar-text" :class="{ 'order-navbar-text-red': isCurrentStep(STEP_BILLING), 'order-navbar-text-blue': isCompleteStep(STEP_BILLING) }">Payment</span>-->
+<!--                    </span>-->
+<!--                    <hr width="100px" class="order-navbar-hr">-->
                     <span class="order-navbar-circle" :class="{ 'order-navbar-circle-red': isCurrentStep(STEP_REVIEW), 'order-navbar-circle-blue': isCompleteStep(STEP_REVIEW) }">
-                        <span v-if="isIncompleteStep(STEP_REVIEW)">4</span>
+                        <span v-if="isIncompleteStep(STEP_REVIEW)">3</span>
                         <span v-if="isCompleteStep(STEP_REVIEW)"><i class="fa fa-check"></i></span>
                         <span class="order-navbar-text" :class="{ 'order-navbar-text-red': isCurrentStep(STEP_REVIEW), 'order-navbar-text-blue': isCompleteStep(STEP_REVIEW) }">Complete</span>
                     </span>
