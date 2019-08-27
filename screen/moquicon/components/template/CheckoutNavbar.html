@@ -27,7 +27,7 @@
 <!--                    <hr width="100px" class="order-navbar-hr">-->
                     <span class="order-navbar-circle" :class="{ 'order-navbar-circle-red': isCurrentStep(STEP_REVIEW), 'order-navbar-circle-blue': isCompleteStep(STEP_REVIEW) }">
                         <span v-if="isIncompleteStep(STEP_REVIEW)">3</span>
-                        <span v-if="isCompleteStep(STEP_REVIEW)"><i class="fa fa-check"></i></span>
+                        <span v-if="isCompleteStep(STEP_REVIEW) || isCompleteStep(STEP_SUCCESS)"><i class="fa fa-check"></i></span>
                         <span class="order-navbar-text" :class="{ 'order-navbar-text-red': isCurrentStep(STEP_REVIEW), 'order-navbar-text-blue': isCompleteStep(STEP_REVIEW) }">Complete</span>
                     </span>
                 </ul>

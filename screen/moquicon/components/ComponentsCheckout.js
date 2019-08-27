@@ -177,7 +177,7 @@ storeComps.CheckOutPage = {
 
                     // Look for shipping option
                     var option = this.listShippingOptions?
-                               this.listShippingOptions.find(function(item) {return item.shipmentMethodDescription == "Ground Parcel"}):0;
+                               this.listShippingOptions.find(function(item) {return item.shipmentMethodDescription == "Digital"}):0;
 
                     // Update the shipping option value
                     if(!!option){
@@ -280,6 +280,7 @@ storeComps.CheckOutPage = {
             this.setCurrentStep(STEP_PENDING);
             ProductService.placeCartOrder(data,this.axiosConfig).then(function (data) {
                 if(data.orderHeader != null) {
+                    this.setCurrentStep(STEP_SUCCESS)
                     this.$router.push({ name: 'successcheckout', params: { orderId: data.orderHeader.orderId }});
                 } else {
                     this.showModal("modal-error");
