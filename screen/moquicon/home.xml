@@ -17,7 +17,7 @@ along with this software (see the LICENSE.md file). If not, see
     <pre-actions>
          <set field="star" from="5"/>
     </pre-actions>
-   
+
     <actions>
 
          <!-- single products from those that has current price bellow then list price -->
@@ -47,7 +47,8 @@ along with this software (see the LICENSE.md file). If not, see
 
         <!-- Deals (Promotions) Category -->
         <entity-find entity-name="mantle.product.store.ProductStoreCategory" list="promoPscList" cache="true">
-            <date-filter/><econdition field-name="productStoreId"/>
+            <date-filter/>
+<econdition field-name="productStoreId"/>
             <econdition field-name="storeCategoryTypeEnumId" value="PsctPromotions"/>
         </entity-find>
         <if condition="promoPscList">
@@ -55,10 +56,11 @@ along with this software (see the LICENSE.md file). If not, see
                     in-map="[productCategoryId:promoPscList[0].productCategoryId]"/>
             <set field="promoProductList" from="promoCatProdOut.productList"/>
         </if>
-       
+
         <!-- Best Selling (Featured) Category -->
         <entity-find entity-name="mantle.product.store.ProductStoreCategory" list="featPscList" cache="true">
-            <date-filter/><econdition field-name="productStoreId"/>
+            <date-filter/>
+<econdition field-name="productStoreId"/>
             <econdition field-name="storeCategoryTypeEnumId" value="PsctFeatured"/>
         </entity-find>
         <if condition="featPscList">
@@ -81,8 +83,11 @@ along with this software (see the LICENSE.md file). If not, see
     </actions>
 
     <widgets>
-        <render-mode><text type="html" location="${template_server_header}"/></render-mode>
-        <render-mode><text type="html" location="${template_server_home}"/></render-mode>
-        <render-mode><text type="html" location="${template_server_footer}"/></render-mode>
+        <render-mode><text type="html" location="${template_server_header}"/>
+</render-mode>
+        <render-mode><text type="html" location="${template_server_home}"/>
+</render-mode>
+        <render-mode><text type="html" location="${template_server_footer}"/>
+</render-mode>
     </widgets>
 </screen>
