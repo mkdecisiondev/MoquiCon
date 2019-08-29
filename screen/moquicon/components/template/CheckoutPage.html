@@ -80,7 +80,7 @@
                 <p class="title-check-text" :class="{'step-active':isCurrentStep(STEP_ADDRESS), 'step-complete':isCompleteStep(STEP_ADDRESS)}">
                     <span v-if="isIncompleteStep(STEP_ADDRESS)" class="circle">1</span>
                     <span v-if="isCompleteStep(STEP_ADDRESS)" class="circle"><i class="fa fa-check"></i></span>
-                    <span class="text-address">SHIPPING ADDRESS</span>
+                    <span class="text-address">DELIVERY ADDRESS</span>
                     <span
                         v-if="isCompleteStep(STEP_ADDRESS)"
                         class="text-address change-info float-right"
@@ -155,7 +155,7 @@
                 <p class="title-check-text"  :class="{'step-active':isCurrentStep(STEP_SHIPPING), 'step-complete':isCompleteStep(STEP_SHIPPING)}">
                     <span v-if="isIncompleteStep(STEP_SHIPPING)" class="circle">2</span>
                     <span v-if="isCompleteStep(STEP_SHIPPING)" class="circle"> <i class="fa fa-check"></i></span>
-                    <span class="text-address">SHIPPING METHOD</span>
+                    <span class="text-address">DELIVERY METHOD</span>
                     <span v-if="isCompleteStep(STEP_SHIPPING)"
                         class="text-address change-info float-right"
                         @click="setCurrentStep(STEP_SHIPPING)">
