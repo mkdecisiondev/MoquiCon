@@ -329,6 +329,10 @@ a:hover { text-decoration: none; }
     margin-top: 10px;
 }
 
+.mk:hover {
+    box-shadow: 0 1px 8px black;
+}
+
 .home-text {
     font-size: 50px;
 }

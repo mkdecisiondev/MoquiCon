@@ -23,7 +23,7 @@
         <div class="col-xs-12 col-md-6">
             <h1 class="home-text">Hosted By</h1>
             <a href="https://mkdecision.com/" target="_blank">
-                <img class="img-fluid" src="/moquicon/assets/mklogo.png" alt="">
+                <img class="mk" class="img-fluid" src="/moquicon/assets/mklogo.png" alt="">
             </a>
         </div>
     </div>
