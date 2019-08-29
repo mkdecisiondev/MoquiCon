@@ -297,6 +297,7 @@ storeComps.CheckOutPage = {
                 this.showModal("modal-error");
                 this.setCurrentStep(STEP_BILLING);
             }.bind(this));
+            this.$root.checkoutComplete = true;
         },
         applyPromotionCode: function() {
             var dataCode = {promoCode: this.promoCode, orderId: this.productsInCart.orderHeader.orderId};

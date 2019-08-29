@@ -24,11 +24,17 @@
             <p>
                 <span class="product-title">${product.productName}</span>
             </p>
-            <div class="product-description">
-                <#if product.descriptionLong??>
-                    ${product.descriptionLong}
+            <div class="product-description mb-3">
+                <#if product.description??>
+                    ${product.description}
                 </#if>
             </div>
+
+            <#if product.productId == 'MOQUICON_PT_2019'>
+                <a href="http://localhost:8080/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
+            <#else>
+                <a href="http://localhost:8080/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
+            </#if>
         </div>
         <div class="col-sm-12 col-md-6">
             <form class="card cart-div" method="post" action="/moquicon/tickets/addToCart">
@@ -42,7 +48,7 @@
                     <div class="form-group col">
                         <div class="cart-form-price">
                             <p>
-                                <span class="price-text">$${product.price}</span>
+                                <span class="price-text">FREE</span>
                                 <#if product.listPrice??>
                                     <span>
                                         <span class="product-listprice-text">was</span>

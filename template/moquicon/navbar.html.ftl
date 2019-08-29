@@ -17,7 +17,7 @@
                 <!-- Right aligned nav items -->
                 <ul class="navbar-nav ml-auto">
                     <div class="text-secondary">
-                        <span class="navbar-pop-title">Official MoquiCon 2019</span>
+                        <span class="navbar-pop-title">MoquiCon 2019</span>
                     </div>
                 </ul>
             </div>

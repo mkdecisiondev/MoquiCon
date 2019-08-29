@@ -57,12 +57,13 @@ var storeApp = new Vue({
         moquiSessionToken: null,
         // userInfo null unless user is logged in, then has response from /customer/info
         customerInfo: storeInfo.customerInfo,
-        cartInfo: null
+        cartInfo: null,
+        checkoutComplete: false
     },
     template: "<App/>",
     components: { App:appObjects.App },
     mounted: function () {
-        if (this.storeConfig.storeName && this.storeConfig.storeName.length) document.title = this.storeConfig.storeName;
+        document.title = "MoquiCon";
         var storeInfo = this.storeInfo;
         if (storeInfo.apiKey && storeInfo.apiKey.length) { this.apiKey = storeInfo.apiKey; storeInfo.apiKey = null; }
         if (storeInfo.moquiSessionToken && storeInfo.moquiSessionToken.length) {
