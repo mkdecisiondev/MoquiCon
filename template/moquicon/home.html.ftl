@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-md-6">
             <div class="row">
                 <div class="col-xs-12 col-md-5">
-                    <i class="fas fa-map-marker-alt fa-6x home-text"></i>
+                    <i class="ic fas fa-map-marker-alt"></i>
                 </div>
                 <div class="col-xs-12 col-md-7" align="center">
                     <div class="row justify-content-center">
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h1>Hosted By </h1>
+            <h1 class="home-text">Hosted By</h1>
             <a href="https://mkdecision.com/" target="_blank">
                 <img class="img-fluid" src="/moquicon/assets/mklogo.png" alt="">
             </a>
