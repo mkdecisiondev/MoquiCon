@@ -1,8 +1,4 @@
 /* $theme-colors: ( "primary": #05c3d5, "danger": #de6232, "dark": #333333 ); */
-body, wrapper {
-    min-height:100vh;
-}
-
 #store-root { font-family: "Aveni", Helvetica, Arial, sans-serif; color: #2c3e50;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
