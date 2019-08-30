@@ -77,6 +77,7 @@ storeComps.ModalAddress = {
       postalCodeErrorMessage: "",
       stateErrorMessage: "",
       contactNumberErrorMessage: "",
+        countriesList: [],
       regionsList: [],
       disabled: false
     }; },
@@ -89,6 +90,12 @@ storeComps.ModalAddress = {
     methods: {
         getRegions: function(geoId) { 
             GeoService.getRegions(geoId).then(function (data){ this.regionsList = data.resultList; }.bind(this));
+        },
+        getCountries: function() {
+            GeoService.getCountries()
+                .then(function (data){
+                    this.countriesList = data.geoList;
+                }.bind(this));
         },
         resetToNameErrorMessage: function(formField) {
             if (this.formField != "") {
@@ -187,6 +194,7 @@ storeComps.ModalAddress = {
       var vm = this;
       this.disabled = false;
       this.shippingAddress.countryGeoId = 'USA';
+      this.getCountries();
       this.getRegions(this.shippingAddress.countryGeoId);
       $('#addressModal').on('show.bs.modal', function(e) { vm.reset() });
       $('#addressFormModal').on('show.bs.modal', function(e) { vm.reset() });

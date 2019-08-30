@@ -1,5 +1,5 @@
             <!-- Address Modal -->
-            
+
                 <div class="modal-content">
                     <div class="modal-header"><!-- Title -->
                         <h5 class="modal-title" id="exampleModalLongTitle">
@@ -47,7 +47,7 @@
                                         class="form-control"
                                         @change="getRegions(shippingAddress.countryGeoId)"
                                         @focus="resetCountryErrorMessage(shippingAddress.countryGeoId)">
-                                    <option value="USA" selected>United States</option>
+                                    <option v-for="country in countriesList" :value="country.geoId">{{country.geoName}}</option>
                                 </select>
                                 <div v-if="countryErrorMessage != null && countryErrorMessage != ''">
                                     <small class="input-text form-text text-danger">{{countryErrorMessage}}</small>
@@ -99,13 +99,19 @@
                         <div class="form-group row justify-content-between">
                             <label for="state" class="col-form-label modal-text ml-3">State<span>&nbsp;*</span></label>
                             <div class="col-sm-8 col-xs-12">
-                                <select id="state"
+                                <select v-if="shippingAddress.countryGeoId == 'USA' || shippingAddress.countryGeoId == 'IND'" id="state"
                                         v-model="shippingAddress.stateProvinceGeoId"
                                         class="form-control"
                                         @focus="resetStateErrorMessage(shippingAddress.stateProvinceGeoId)"
                                         required>
                                     <option v-for="region in regionsList" :value="region.geoId">{{region.geoName}}</option>
                                 </select>
+                                <input v-else id="state"
+                                       class="form-control"
+                                       @focus="resetStateErrorMessage(shippingAddress.stateProvinceGeoId)"
+                                       type="text"
+                                       placeholder="Region"
+                                       v-model="shippingAddress.stateProvinceGeoId"/>
                                 <div v-if="stateErrorMessage != null && stateErrorMessage != ''">
                                     <small class="input-text form-text text-danger">{{stateErrorMessage}}</small>
                                 </div>
