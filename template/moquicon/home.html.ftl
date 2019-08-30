@@ -9,7 +9,7 @@
                 <div class="col-xs-12 col-md-7" align="center">
                     <div class="row justify-content-center">
                         <div class="col-xs-12 text-center">
-                            <h1 class="home-text">Oct 11-12</h1>
+                            <h1 class="home-text">Oct 11-12, 2019</h1>
                         </div>
                     </div>
                     <div class="row justify-content-center">

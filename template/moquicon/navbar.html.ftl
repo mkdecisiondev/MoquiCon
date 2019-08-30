@@ -46,17 +46,17 @@
                         Schedule
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/moquicon/sponsors">
-                        Sponsors
-                    </a>
-                </li>
+<#--                <li class="nav-item">-->
+<#--                    <a class="nav-link" href="/moquicon/sponsors">-->
+<#--                        Sponsors-->
+<#--                    </a>-->
+<#--                </li>-->
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/moquicon/contact">
-                        Contact
-                    </a>
-                </li>
+<#--                <li class="nav-item">-->
+<#--                    <a class="nav-link" href="/moquicon/contact">-->
+<#--                        Contact-->
+<#--                    </a>-->
+<#--                </li>-->
             </ul>
 
             <!-- Right aligned nav items -->
@@ -76,13 +76,13 @@
                             </form>
                         </div>
                     </li>
-                <#else>
-                    <li class="nav-item">
-                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
-                    </li>
+<#--                <#else>-->
+<#--                    <li class="nav-item">-->
+<#--                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>-->
+<#--                    </li>-->
+<#--                    <li class="nav-item">-->
+<#--                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>-->
+<#--                    </li>-->
                 </#if>
 
                  <#assign cartCount = 0>

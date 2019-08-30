@@ -1,4 +1,7 @@
 /* $theme-colors: ( "primary": #05c3d5, "danger": #de6232, "dark": #333333 ); */
+body, wrapper {
+    min-height:100vh;
+}
 
 #store-root { font-family: "Aveni", Helvetica, Arial, sans-serif; color: #2c3e50;
     -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
@@ -40,7 +43,7 @@ a:hover { text-decoration: none; }
 
 /* Footer */
 
-.footer { background-color: #666666; color: #fff; padding: 30px; position: relative; width: 100%; bottom: 0px;}
+.footer { background-color: #666666; color: #fff; padding: 20px; position: relative; width: 100%; bottom: 0;}
 .footer p { font-size: 0.8em; color: #04c3d5; }
 .footer-ul { list-style-type: none; font-size: 0.8em; }
 .footer-ul li { margin-top: 10px; cursor: pointer; }
@@ -329,12 +332,21 @@ a:hover { text-decoration: none; }
     margin-top: 10px;
 }
 
+#venue-text {
+    font-size: 1.3rem;
+}
+
+#venue-btn {
+    color: white;
+}
+
 .mk:hover {
     box-shadow: 0 1px 8px black;
 }
 
+
 .home-text {
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .ic {
@@ -343,7 +355,7 @@ a:hover { text-decoration: none; }
 
 @media screen and (min-width: 1200px) {
     .home-text {
-        font-size: 50px;
+        font-size: 45px;
     }
     .ic {
         font-size: 100px;
@@ -352,7 +364,7 @@ a:hover { text-decoration: none; }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
     .home-text {
-        font-size: 40px;
+        font-size: 35px;
     }
     .ic {
         font-size: 100px;
@@ -361,7 +373,7 @@ a:hover { text-decoration: none; }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .home-text {
-        font-size: 30px;
+        font-size: 25px;
     }
     .ic {
         font-size: 80px;
