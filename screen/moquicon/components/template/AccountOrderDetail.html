@@ -36,7 +36,7 @@
                         <h2 class="lead text-cyan">Item</h2>
                             <template v-for="(item, index) in orderList.orderItemList">
                                     <a v-if="item.itemTypeEnumId == 'ItemProduct'" class="row no-gutters font-size-09" 
-                                        :href="'/store/product/' + item.productId">
+                                        :href="'/moquicon/tickets/' + item.productId">
                                         {{item.itemDescription}}
                                     </a>
                                     <span v-if="item.itemTypeEnumId != 'ItemProduct'" class="row no-gutters font-size-09">
