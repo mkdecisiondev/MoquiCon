@@ -3,10 +3,10 @@
         <div class="container d-flex flex-row main-navbar">
             <a class="navbar-brand d-none d-sm-block"  href="/moquicon">
                 <img height="60px" class="moqui-logo moqui-logo1" src="/moquicon/assets/moqui-logo.svg" alt="">
-                <span class="font-italic navbar-title">MoquiCon</span>
+                <span class="navbar-title">MoquiCon</span>
             </a>
             <a class="navbar-brand d-block d-sm-none" href="/moquicon">
-                <span class="font-italic navbar-title">MoquiCon</span>
+                <span class="navbar-title">MoquiCon</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_collapse1" 
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
