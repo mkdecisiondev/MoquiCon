@@ -340,10 +340,19 @@ a:hover { text-decoration: none; }
     color: white;
 }
 
+#home-button {
+    color: white;
+    text-decoration: none;
+}
+
 .mk:hover {
     box-shadow: 0 1px 8px black;
 }
 
+.home-middle {
+    color: white;
+    background: #666666;
+}
 
 .home-text {
     font-size: 45px;

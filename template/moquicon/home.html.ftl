@@ -1,4 +1,11 @@
 <img class="img-fluid" src="/moquicon/assets/moquicon-background.jpg" alt="">
+<div class="home-middle">
+    <div class="row justify-content-center">
+        <div class="col-xs-12">
+            <h2 class="text-center home-text"><button class="btn btn-block btn-primary my-3 ml-1"><a id="home-button" href="/moquicon/tickets/MOQUICON_PT_2019">RESERVE A TICKET NOW FOR FREE</a></button></h2>
+        </div>
+    </div>
+</div>
 <div class="container py-5">
     <div class="row justify-content-center" align="center">
         <div class="col-xs-12 col-md-6">

@@ -31,9 +31,9 @@
             </div>
 
             <#if product.productId == 'MOQUICON_PT_2019'>
-                <a href="http://localhost:8080/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
+                <a href="/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
             <#else>
-                <a href="http://localhost:8080/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
+                <a href="/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
             </#if>
         </div>
         <div class="col-sm-12 col-md-6">
