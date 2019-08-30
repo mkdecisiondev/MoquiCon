@@ -15,10 +15,10 @@
                         <!-- <product-image v-if="item.itemTypeEnumId=='ItemProduct'" :productId="item.productId"
                             class="mb-1" />
                         <span v-else></span> -->
-                        <router-link v-if="item.itemTypeEnumId == 'ItemProduct'" class="order-link-text pl-3 align-top"
-                                     :to="'/product/'+item.productId" tag="span">
+                        <a v-if="item.itemTypeEnumId == 'ItemProduct'" class="order-link-text pl-3 align-top"
+                                     :href="'/moquicon/tickets/'+item.productId" tag="span">
                             {{item.itemDescription}}
-                        </router-link>
+                        </a>
                         <span v-else class="order-link-text pl-3 align-top">{{item.itemDescription}}</span>
                     </div>
                     <div class="col col-lg-2 text-center">
