@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <categories pseudoId="MOQUICON_TICKET" ownerPartyId="_NA_" lastUpdatedStamp="1566939257479" productCategoryId="MOQUICON_TICKET" categoryName="Moquicon Tickets">
+        <products fromDate="1566939300000" lastUpdatedStamp="1566939305706" productId="MOQUICON_PT_2019"/>
+        <products fromDate="1566939300000" lastUpdatedStamp="1566939321127" productId="MOQUICON_VT_2019"/>
+    </categories>
+</entity-facade-xml>
+

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <assets assetTypeEnumId="AstTpInventory" quantityOnHandTotal="9999" assetId="MOQUICON_VTA_2019" availableToPromiseTotal="9999" receivedDate="1565981400000" lastUpdatedStamp="1566939165854" facilityId="ZIRET_WH" productId="MOQUICON_VT_2019" classEnumId="AsClsInventoryFin" acquireCostUomId="USD" ownerPartyId="_NA_" statusId="AstAvailable" hasQuantity="Y"/>
+</entity-facade-xml>
+

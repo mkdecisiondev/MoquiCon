@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <productStores taxGatewayConfigId="LOCAL" requireInventory="N" storeName="Ziziwork Retail Store" productStoreId="POPC_DEFAULT" wikiSpaceId="ZZW_RETAIL" inventoryFacilityId="ZIRET_WH" lastUpdatedStamp="1567100008148" storeDomain="demo.moqui.org" profileUrlPath="popc/Customer/Profile" defaultCurrencyUomId="USD" productDataDocumentId="PopcProduct" defaultLocale="en_US" organizationPartyId="ORG_ZIZI_RETAIL" reservationOrderEnumId="AsResOrdFifoRec">
+        <shippingGateways lastUpdatedStamp="1567211599714" carrierPartyId="_NA_" shippingGatewayConfigId="NA_LOCAL"/>
+        <paymentGateways paymentInstrumentEnumId="PiCreditCard" lastUpdatedStamp="1567211599714" paymentGatewayConfigId="TEST_APPROVE"/>
+        <shipOptions carrierPartyId="_NA_" lastUpdatedStamp="1567180981784" shipmentMethodEnumId="ShMthGround" sequenceNum="2"/>
+        <shipOptions carrierPartyId="_NA_" lastUpdatedStamp="1567180981784" shipmentMethodEnumId="ShMthPickUp" sequenceNum="1"/>
+    </productStores>
+</entity-facade-xml>
+

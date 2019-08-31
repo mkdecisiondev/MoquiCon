@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <products assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin" productName="Moquicon Physical Attendance Ticket 2019" pseudoId="MOQUICON_PT_2019" lastUpdatedStamp="1567114800208" productId="MOQUICON_PT_2019" productTypeEnumId="PtAsset" ownerPartyId="_NA_">
+        <description><![CDATA[Do you plan on attending in-person? Sign up for a MoquiCon Physical ticket. Get the latest information, tutorials, and talks on the Moqui Framework: a seamlessly integrated, enterprise-ready framework for building enterprise automation applications based on Java.]]></description>
+        <assets assetTypeEnumId="AstTpInventory" quantityOnHandTotal="9999" assetId="MOQUICON_PTA_2019" availableToPromiseTotal="9999" receivedDate="1565290200000" lastUpdatedStamp="1566939092145" facilityId="ZIRET_WH" classEnumId="AsClsInventoryFin" acquireCostUomId="USD" ownerPartyId="_NA_" statusId="AstAvailable" hasQuantity="Y"/>
+        <categories fromDate="1566939300000" lastUpdatedStamp="1566939305706" productCategoryId="MOQUICON_TICKET"/>
+        <prices priceTypeEnumId="PptCurrent" price="0" pricePurposeEnumId="PppComponent" lastUpdatedStamp="1566938907772" productPriceId="MOQUICON_PTP_2019" fromDate="1566938700000"/>
+    </products>
+</entity-facade-xml>
+

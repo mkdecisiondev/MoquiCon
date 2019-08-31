@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <facilities facilityTypeEnumId="FcTpWarehouse" lastUpdatedStamp="1566864704706" facilityId="ZIRET_WH" pseudoId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL" assetAllowIssueOverQoh="Y" facilityName="Ziziwork Retail Warehouse"/>
+</entity-facade-xml>
+
