@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <products assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin" productName="MoquiCon Virtual Attendance Ticket - 2019" pseudoId="MOQUICON_VT_2019" lastUpdatedStamp="1567544068247" productId="MOQUICON_VT_2019" productTypeEnumId="PtAsset" ownerPartyId="_NA_">
+        <description><![CDATA[Do you plan on attending virtually with our hangouts link? Sign up for a MoquiCon Virtual ticket. Get the latest information, tutorials, and talks on the Moqui Framework: a seamlessly integrated, enterprise-ready framework for building enterprise automation applications based on Java.]]></description>
+        <assets assetTypeEnumId="AstTpInventory" quantityOnHandTotal="9999" assetId="MOQUICON_VT" availableToPromiseTotal="9999" receivedDate="1567536900000" lastUpdatedStamp="1567544269900" classEnumId="AsClsInventoryFin" ownerPartyId="_NA_" statusId="AstAvailable" hasQuantity="Y"/>
+        <prices priceTypeEnumId="PptCurrent" minQuantity="1" price="0" productStoreId="POPC_DEFAULT" pricePurposeEnumId="PppPurchase" lastUpdatedStamp="1567544150178" productPriceId="MOQUICON_VTP" fromDate="1567544100000"/>
+    </products>
+</entity-facade-xml>
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml>
+    <parties lastUpdatedStamp="1567543910009" pseudoId="ZIRET" ownerPartyId="ORG_ZIZI_RETAIL" partyTypeEnumId="PtyOrganization" partyId="ORG_ZIZI_RETAIL">
+        <owner lastUpdatedStamp="1567543910009" pseudoId="ZIRET" ownerPartyId="ORG_ZIZI_RETAIL" partyTypeEnumId="PtyOrganization"/>
+        <roles lastUpdatedStamp="1567543910009" roleTypeId="OrgInternal"/>
+        <Owner-mantle.facility.Facility facilityTypeEnumId="FcTpWarehouse" lastUpdatedStamp="1567543910677" facilityId="ZIRET_WH" pseudoId="ZIRET_WH" ownerPartyId="ORG_ZIZI_RETAIL" assetAllowIssueOverQoh="Y" facilityName="Ziziwork Retail Warehouse"/>
+        <organization lastUpdatedStamp="1567543910009" organizationName="Ziziwork Retail &amp; Wholesale"/>
+    </parties>
+</entity-facade-xml>
