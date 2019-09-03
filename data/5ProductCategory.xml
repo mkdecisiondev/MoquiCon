@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-facade-xml>
-    <categories pseudoId="MOQUICON_TICKET" ownerPartyId="_NA_" lastUpdatedStamp="1567544322928" productCategoryId="MOQUICON_TICKET" productCategoryTypeEnumId="PctCatalog" categoryName="MoquiCon Ticket"/>
+    <categories pseudoId="MOQUICON_TICKET" ownerPartyId="_NA_" lastUpdatedStamp="1567544322928"
+        productCategoryId="MOQUICON_TICKET" productCategoryTypeEnumId="PctCatalog" categoryName="MoquiCon Ticket" />
+    <mantle.product.store.ProductStoreCategory fromDate="1567550700000" productCategoryId="MOQUICON_TICKET"
+        storeCategoryTypeEnumId="PsctBrowseRoot" productStoreId="POPC_DEFAULT" />
+    <mantle.product.store.ProductStoreCategory fromDate="1567551000000" productCategoryId="MOQUICON_TICKET"
+        storeCategoryTypeEnumId="PsctSearch" productStoreId="POPC_DEFAULT" />
 </entity-facade-xml>
-
