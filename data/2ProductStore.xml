@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-facade-xml>
-    <productStores lastUpdatedStamp="1567544395380" taxGatewayConfigId="LOCAL" defaultCurrencyUomId="USD" requireInventory="N" defaultLocale="en_US" organizationPartyId="ORG_ZIZI_RETAIL" storeName="Ziziwork Retail Store" productStoreId="POPC_DEFAULT" reservationOrderEnumId="AsResOrdFifoRec" wikiSpaceId="ZZW_RETAIL" inventoryFacilityId="ZIRET_WH">
-        <shippingGateways lastUpdatedStamp="1567543910677" carrierPartyId="_NA_" shippingGatewayConfigId="NA_LOCAL"/>
+    <productStores lastUpdatedStamp="1567544395380" taxGatewayConfigId="LOCAL" defaultCurrencyUomId="USD"
+        requireInventory="N" defaultLocale="en_US" organizationPartyId="ORG_ZIZI_RETAIL"
+        storeName="Ziziwork Retail Store" productStoreId="POPC_DEFAULT" reservationOrderEnumId="AsResOrdFifoRec"
+        inventoryFacilityId="ZIRET_WH">
+        <shippingGateways lastUpdatedStamp="1567543910677" carrierPartyId="_NA_" shippingGatewayConfigId="NA_LOCAL" />
 
-        <paymentGateways paymentInstrumentEnumId="PiCreditCard" lastUpdatedStamp="1567543910677" paymentGatewayConfigId="TEST_APPROVE"/>
+        <paymentGateways paymentInstrumentEnumId="PiCreditCard" lastUpdatedStamp="1567543910677"
+            paymentGatewayConfigId="TEST_APPROVE" />
     </productStores>
 </entity-facade-xml>
-
