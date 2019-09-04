@@ -1311,6 +1311,7 @@ a:hover {
 .schedule-icon {
     font-size: 45px;
     color: #212529;
+    padding: 10% 70% 10% 0%;
 }
 
 .schedule-icon:hover {
@@ -1320,6 +1321,7 @@ a:hover {
 .date-icon {
     font-size: 45px;
     color: #212529;
+    padding: 10% 50% 10% 0%;
 }
 
 .date-icon:hover {
