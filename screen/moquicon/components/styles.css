@@ -358,12 +358,38 @@ a:hover { text-decoration: none; }
     font-size: 100px;
 }
 
+.top {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.top-middle {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-middle {
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (min-width: 1200px) {
     .home-text {
         font-size: 45px;
     }
     .ic {
         font-size: 100px;
+    }
+    .top-middle-text {
+        font-size: 80px;
+    }
+    .bottom-middle-text {
+        font-size: 46px;
     }
 }
 
@@ -374,6 +400,12 @@ a:hover { text-decoration: none; }
     .ic {
         font-size: 100px;
     }
+    .top-middle-text {
+        font-size: 65px;
+    }
+    .bottom-middle-text {
+        font-size: 36px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -382,6 +414,12 @@ a:hover { text-decoration: none; }
     }
     .ic {
         font-size: 80px;
+    }
+    .top-middle-text {
+        font-size: 50px;
+    }
+    .bottom-middle-text {
+        font-size: 26px;
     }
 }
 
@@ -392,6 +430,9 @@ a:hover { text-decoration: none; }
     .ic {
         font-size: 60px;
     }
+    .bottom-middle-text {
+        font-size: 20px;
+    }
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
@@ -401,5 +442,11 @@ a:hover { text-decoration: none; }
     }
     .ic {
         font-size: 50px;
+    }
+    .top-middle-text {
+        font-size: 28px;
+    }
+    .bottom-middle-text {
+        font-size: 16px;
     }
 }

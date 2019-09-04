@@ -12,15 +12,6 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="navbar-collapse collapse">
-                <!-- Right aligned nav items -->
-                <ul class="navbar-nav ml-auto">
-                    <div class="text-secondary">
-                        <span class="navbar-pop-title">MoquiCon 2019</span>
-                    </div>
-                </ul>
-            </div>
         </div>
         <div id="nav_collapse1" class="container navbar-collapse collapse">
             <ul class="navbar-nav"><li class="nav-item dropdown">
@@ -76,13 +67,13 @@
                             </form>
                         </div>
                     </li>
-<#--                <#else>-->
-<#--                    <li class="nav-item">-->
-<#--                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>-->
-<#--                    </li>-->
-<#--                    <li class="nav-item">-->
-<#--                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>-->
-<#--                    </li>-->
+                <#else>
+                    <li class="nav-item">
+                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
+                    </li>
                 </#if>
 
                  <#assign cartCount = 0>
@@ -107,14 +98,6 @@
                         Cart
                     </a>
                 </li>
-                <li class="nav-item d-block d-sm-block d-md-none">
-                    <div class="search-input">
-                        <input type="text" placeholder="Search...">
-                        <button class="search-button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
@@ -137,4 +120,4 @@
         </div>
     </div>
 </div>
-</div>
+
