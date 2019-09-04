@@ -17,7 +17,7 @@ plugins {
     id "com.eriwen.gradle.js" version "2.14.1"
 }
 
-def compsPath = "screen/store/components"
+def compsPath = "screen/moquicon/components"
 // source JS files in load order
 def compsJsFiles = [compsPath + "/utilities.js", compsPath + "/ApiServices.js", compsPath + "/ComponentsNav.js",
         compsPath + "/ComponentsProduct.js", compsPath + "/ComponentsAccount.js", compsPath + "/ComponentsCheckout.js", compsPath + "/main.js"]
