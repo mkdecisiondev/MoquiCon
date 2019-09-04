@@ -5,7 +5,7 @@
                 <img height="60px" class="moqui-logo moqui-logo1" src="/moquicon/assets/moqui-logo.svg" alt="">
                 <span class="navbar-title">MoquiCon</span>
             </a>
-            <a class="navbar-brand d-block d-sm-none" href="/moquicon">
+            <a class="navbar-brand d-block d-sm-none" href="/">
                 <span class="navbar-title">MoquiCon</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_collapse1" 
