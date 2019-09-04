@@ -12,8 +12,14 @@
 <div class="container container-text mt-1">
     <#if addedCorrect?? && addedCorrect == 'true'>
         <div class="alert alert-primary mt-3 mb-3" role="alert">
-            <i class="far fa-check-square"></i> You added a ${product.productName} to your shopping cart.
-            <a class="float-right" href="/moquicon/d#/checkout">Go to Checkout <i class="fas fa-arrow-right"></i></a>
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <i class="far fa-check-square"></i> <span>You added a ${product.productName} to your shopping cart.</span>
+                </div>
+                <div class="col-xs-12 col-md-3">
+                    <a class="float-right" href="/moquicon/d#/checkout">Go to Checkout <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </#if>
     <#--  <div class="row d-flex justify-content-center">

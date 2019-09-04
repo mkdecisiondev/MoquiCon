@@ -26,8 +26,5 @@ along with this software (see the LICENSE.md file). If not, see
         <render-mode>
             <text type="html" location="${template_server_home}"/>
         </render-mode>
-        <render-mode>
-            <text type="html" location="${template_server_footer}"/>
-        </render-mode>
     </widgets>
 </screen>
