@@ -4,6 +4,13 @@
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
 }
 
 /* General, Bootstrap Overrides */
@@ -1321,6 +1328,26 @@ a:hover {
     font-size: 100px;
 }
 
+.top {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.top-middle {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-middle {
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 @media screen and (min-width: 1200px) {
     .home-text {
         font-size: 45px;
@@ -1328,6 +1355,14 @@ a:hover {
 
     .ic {
         font-size: 100px;
+    }
+    .top-middle-text {
+        font-size: 80px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 46px;
+        font-weight: bold;
     }
 }
 
@@ -1339,6 +1374,14 @@ a:hover {
     .ic {
         font-size: 100px;
     }
+    .top-middle-text {
+        font-size: 65px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 36px;
+        font-weight: bold;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -1348,6 +1391,14 @@ a:hover {
 
     .ic {
         font-size: 80px;
+    }
+    .top-middle-text {
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 26px;
+        font-weight: bold;
     }
 }
 
@@ -1359,6 +1410,14 @@ a:hover {
     .ic {
         font-size: 60px;
     }
+    .top-middle-text {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 20px;
+        font-weight: bold;
+    }
 }
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
@@ -1369,6 +1428,14 @@ a:hover {
 
     .ic {
         font-size: 50px;
+    }
+    .top-middle-text {
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 16px;
+        font-weight: bold;
     }
 }
 
