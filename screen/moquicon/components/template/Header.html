@@ -64,14 +64,14 @@
                 </template>
                 <template v-else>
                     <li class="nav-item">
-                        <router-link :to="'/account/create'" tag="a" class="nav-link">Join Now</router-link>
+                        <router-link :to="'/account/create'" tag="a" class="nav-link"><i class="fas fa-user-plus"></i> Join Now</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link :to="'/login'" tag="a" class="nav-link"><i class="fas fa-user"></i> Sign In</router-link>
                     </li>
                 </template>
                 <li class="nav-item nav-link" v-if="productsQuantity == 0">
-                    <span class="cart-quantity">{{productsQuantity}}</span> <i class="fa fa-shopping-cart"></i> 
+                    <i class="fa fa-shopping-cart"></i>
                     <span class="pointer" data-toggle="modal" data-target="#emptyCartModal">Cart</span>
                 </li>
                 <li class="nav-item" v-else>
