@@ -169,6 +169,7 @@ function getPlaceholderRoute(locationVar, name, props) {
     if (props) { component.props = props; }
     return component;
 }
+
 var GeoService = {
     getCountries: function() { return axios.get("/rest/s1/pop/geos").then(function (response) { return response.data; }); },
     getRegions: function(geoId) { return axios.get("/rest/s1/pop/geos/" + geoId + "/regions").then(function (response) { return response.data; }); },
@@ -279,6 +280,7 @@ var ProductService = {
         return axios.delete("/rest/s1/pop/cart/promoCode",data,headers).then(function (response) { return response.data; });
     }
 };
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 storeComps.Navbar = {
   name: "navbar",
@@ -602,6 +604,7 @@ storeComps.ModalCreditCard = {
 };
 storeComps.ModalCreditCardTemplate = getPlaceholderRoute("template_client_modalCreditCard", "ModalCreditCard", storeComps.ModalCreditCard.props);
 Vue.component("modal-credit-card", storeComps.ModalCreditCardTemplate);
+
 storeComps.ProductImage = {
     name: "product-image",
     data: function() { return { content: {} } },
@@ -630,6 +633,7 @@ storeComps.ProductImage = {
     }
 };
 storeComps.ProductImageTemplate = getPlaceholderRoute("template_client_productImage", "ProductImage", storeComps.ProductImage.props);
+
 
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 var STORE_COUNTRY = "USA";
@@ -1180,6 +1184,7 @@ storeComps.CustomerOrdersPage = {
     }
 };
 storeComps.CustomerOrdersPageTemplate = getPlaceholderRoute("template_client_orderHistory", "CustomerOrdersPage");
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 const STEP_ADDRESS = "shipping-address";
 const STEP_SHIPPING = "shipping-method";
@@ -1643,6 +1648,7 @@ Vue.component("prop65-warning", storeComps.CheckoutProp65Template);
 
 storeComps.CheckoutNavbarTemplate = getPlaceholderRoute("template_client_checkoutHeader", "CheckoutNavbar", storeComps.CheckoutNavbar.props);
 Vue.component("checkout-navbar", storeComps.CheckoutNavbarTemplate);
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 var preLoginRoute = {};
 var appObjects = {
@@ -1717,3 +1723,4 @@ var storeApp = new Vue({
             this.customerInfo = storeInfo.customerInfo; storeInfo.customerInfo = null; }
     }
 });
+
