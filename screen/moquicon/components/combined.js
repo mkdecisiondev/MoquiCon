@@ -169,6 +169,7 @@ function getPlaceholderRoute(locationVar, name, props) {
     if (props) { component.props = props; }
     return component;
 }
+
 var GeoService = {
     getCountries: function() { return axios.get("/rest/s1/pop/geos").then(function (response) { return response.data; }); },
     getRegions: function(geoId) { return axios.get("/rest/s1/pop/geos/" + geoId + "/regions").then(function (response) { return response.data; }); },
@@ -279,6 +280,7 @@ var ProductService = {
         return axios.delete("/rest/s1/pop/cart/promoCode",data,headers).then(function (response) { return response.data; });
     }
 };
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 storeComps.Navbar = {
   name: "navbar",
@@ -358,6 +360,7 @@ storeComps.ModalAddress = {
       postalCodeErrorMessage: "",
       stateErrorMessage: "",
       contactNumberErrorMessage: "",
+        countriesList: [],
       regionsList: [],
       disabled: false
     }; },
@@ -370,6 +373,12 @@ storeComps.ModalAddress = {
     methods: {
         getRegions: function(geoId) { 
             GeoService.getRegions(geoId).then(function (data){ this.regionsList = data.resultList; }.bind(this));
+        },
+        getCountries: function() {
+            GeoService.getCountries()
+                .then(function (data){
+                    this.countriesList = data.geoList;
+                }.bind(this));
         },
         resetToNameErrorMessage: function(formField) {
             if (this.formField != "") {
@@ -468,6 +477,7 @@ storeComps.ModalAddress = {
       var vm = this;
       this.disabled = false;
       this.shippingAddress.countryGeoId = 'USA';
+      this.getCountries();
       this.getRegions(this.shippingAddress.countryGeoId);
       $('#addressModal').on('show.bs.modal', function(e) { vm.reset() });
       $('#addressFormModal').on('show.bs.modal', function(e) { vm.reset() });
@@ -594,6 +604,7 @@ storeComps.ModalCreditCard = {
 };
 storeComps.ModalCreditCardTemplate = getPlaceholderRoute("template_client_modalCreditCard", "ModalCreditCard", storeComps.ModalCreditCard.props);
 Vue.component("modal-credit-card", storeComps.ModalCreditCardTemplate);
+
 storeComps.ProductImage = {
     name: "product-image",
     data: function() { return { content: {} } },
@@ -622,6 +633,7 @@ storeComps.ProductImage = {
     }
 };
 storeComps.ProductImageTemplate = getPlaceholderRoute("template_client_productImage", "ProductImage", storeComps.ProductImage.props);
+
 
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 var STORE_COUNTRY = "USA";
@@ -1172,6 +1184,7 @@ storeComps.CustomerOrdersPage = {
     }
 };
 storeComps.CustomerOrdersPageTemplate = getPlaceholderRoute("template_client_orderHistory", "CustomerOrdersPage");
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 const STEP_ADDRESS = "shipping-address";
 const STEP_SHIPPING = "shipping-method";
@@ -1228,15 +1241,66 @@ storeComps.CheckoutNavbar = {
 storeComps.CheckOutPage = {
     name: "checkout-page",
     extends: storeComps.CheckoutNavbar,
-    data: function() { return {
-            cvv: "", showCvvError: false, homePath: "", storePath: "", customerInfo: {}, productsInCart: {}, shippingAddress: {}, shippingAddressSelect: {}, paymentMethod: {}, shippingMethod: {}, showProp65: "false",
-            billingAddress: {}, billingAddressOption: "", listShippingAddress: [], listPaymentMethods: [],  promoCode: "", promoError: "", postalAddressStateGeoSelected: null,
-            countriesList: [], regionsList: [], shippingOption: "", addressOption: "", paymentOption: "", isSameAddress: "0", shippingItemPrice: 0,
-            isUpdate: false, isSpinner: false, responseMessage: "", toNameErrorMessage: "", countryErrorMessage: "", addressErrorMessage: "", 
-            cityErrorMessage: "", stateErrorMessage: "", postalCodeErrorMessage: "", contactNumberErrorMessage: "", paymentId: 0, 
-            freeShipping:false, promoSuccess: "", loading: false,
-            listShippingOptions: [],  axiosConfig: { headers: { "Content-Type": "application/json;charset=UTF-8", "Access-Control-Allow-Origin": "*",
-            "api_key":this.$root.apiKey, "moquiSessionToken":this.$root.moquiSessionToken } }
+    data: function() {
+        return {
+            cvv: "888",
+            showCvvError: false,
+            homePath: "",
+            storePath: "",
+            customerInfo: {},
+            productsInCart: {},
+            shippingAddress: {},
+            shippingAddressSelect: {},
+            paymentMethod: {
+                cardNumber: "4242424242424242",
+                cardSecurityCode: "888",
+                description: "Visa 4242424242424242",
+                expireMonth: "04",
+                expireYear: "2023",
+                paymentMethodId: "100563",
+                paymentMethodTypeEnumId: undefined,
+                postalContactMechId: "101940",
+                telecomContactMechId: "101939",
+                titleOnAccount: "Ken Ken"
+            },
+            shippingMethod: {},
+            showProp65: "false",
+            billingAddress: {},
+            billingAddressOption: "",
+            listShippingAddress: [],
+            listPaymentMethods: [],
+            promoCode: "", promoError: "",
+            postalAddressStateGeoSelected: null,
+            countriesList: [],
+            regionsList: [],
+            shippingOption: "",
+            addressOption: "",
+            paymentOption: "",
+            isSameAddress: "0",
+            shippingItemPrice: 0,
+            isUpdate: false,
+            isSpinner: false,
+            responseMessage: "",
+            toNameErrorMessage: "",
+            countryErrorMessage: "",
+            addressErrorMessage: "",
+            cityErrorMessage: "",
+            stateErrorMessage: "",
+            postalCodeErrorMessage: "",
+            contactNumberErrorMessage: "",
+            paymentId: 0,
+            freeShipping:false,
+            promoSuccess: "",
+            loading: false,
+            listShippingOptions: [],
+            axiosConfig: {
+                headers: {
+                    "Content-Type": "application/json;charset=UTF-8",
+                    "Access-Control-Allow-Origin": "*",
+                    "api_key":this.$root.apiKey,
+                    "moquiSessionToken":this.$root.moquiSessionToken
+                }
+            }
         };
     },
     computed: {
@@ -1300,7 +1364,7 @@ storeComps.CheckOutPage = {
 
                     // Look for shipping option
                     var option = this.listShippingOptions?
-                               this.listShippingOptions.find(function(item) {return item.shipmentMethodDescription == "Ground Parcel"}):0;
+                               this.listShippingOptions.find(function(item) {return item.shipmentMethodDescription == "Digital"}):0;
 
                     // Update the shipping option value
                     if(!!option){
@@ -1360,6 +1424,7 @@ storeComps.CheckOutPage = {
         shippingContinue: function() {
             this.addCartBillingShipping();
             this.setCurrentStep(STEP_BILLING)
+            this.validateCvv()
         },
         validateCvv: function () {
             var isCvvValid = new RegExp("^\\d{3,4}$").test(this.cvv);
@@ -1402,6 +1467,7 @@ storeComps.CheckOutPage = {
             this.setCurrentStep(STEP_PENDING);
             ProductService.placeCartOrder(data,this.axiosConfig).then(function (data) {
                 if(data.orderHeader != null) {
+                    this.setCurrentStep(STEP_SUCCESS)
                     this.$router.push({ name: 'successcheckout', params: { orderId: data.orderHeader.orderId }});
                 } else {
                     this.showModal("modal-error");
@@ -1418,6 +1484,7 @@ storeComps.CheckOutPage = {
                 this.showModal("modal-error");
                 this.setCurrentStep(STEP_BILLING);
             }.bind(this));
+            this.$root.checkoutComplete = true;
         },
         applyPromotionCode: function() {
             var dataCode = {promoCode: this.promoCode, orderId: this.productsInCart.orderHeader.orderId};
@@ -1443,7 +1510,7 @@ storeComps.CheckOutPage = {
             this.loading = true;
             var data = { "orderId": item.orderId, "orderItemSeqId": item.orderItemSeqId, "quantity": item.quantity };
             ProductService.updateProductQuantity(data, this.axiosConfig)
-                .then(function (data) { 
+                .then(function (data) {
                     this.getCartInfo();
                     this.getCartShippingOptions();
                 }.bind(this));
@@ -1495,18 +1562,7 @@ storeComps.CheckOutPage = {
             this.responseMessage = "";
         },
         selectPaymentMethod: function(method) {
-            this.paymentMethod = {};
-            this.paymentMethod.paymentMethodId = method.paymentMethodId;
-            this.paymentMethod.description = method.paymentMethod.description;
-            this.paymentMethod.paymentMethodTypeEnumId = method.paymentMethod.PmtCreditCard;
-            this.paymentMethod.cardNumber = method.creditCard.cardNumber;
-            this.paymentMethod.titleOnAccount = method.paymentMethod.titleOnAccount;
-            this.paymentMethod.expireMonth = method.expireMonth;
-            this.paymentMethod.expireYear = method.expireYear;
-            this.paymentMethod.cardSecurityCode = "";
-            this.paymentMethod.postalContactMechId = method.paymentMethod.postalContactMechId;
-            this.paymentMethod.telecomContactMechId = method.paymentMethod.telecomContactMechId;
-            this.responseMessage = "";
+            return
         },
         hideModal: function(modalId) { $('#'+modalId).modal('hide'); },
         showModal: function(modalId) { $('#'+modalId).modal('show'); },
@@ -1543,7 +1599,7 @@ storeComps.CheckOutPage = {
             this.getCartShippingOptions();
             this.getCustomerShippingAddresses();
             this.getCustomerPaymentMethods();
-            this.getRegions('USA');  
+            this.getRegions('USA');
         }
     }
 };
@@ -1592,6 +1648,7 @@ Vue.component("prop65-warning", storeComps.CheckoutProp65Template);
 
 storeComps.CheckoutNavbarTemplate = getPlaceholderRoute("template_client_checkoutHeader", "CheckoutNavbar", storeComps.CheckoutNavbar.props);
 Vue.component("checkout-navbar", storeComps.CheckoutNavbarTemplate);
+
 /* This software is in the public domain under CC0 1.0 Universal plus a Grant of Patent License. */
 var preLoginRoute = {};
 var appObjects = {
@@ -1651,12 +1708,13 @@ var storeApp = new Vue({
         moquiSessionToken: null,
         // userInfo null unless user is logged in, then has response from /customer/info
         customerInfo: storeInfo.customerInfo,
-        cartInfo: null
+        cartInfo: null,
+        checkoutComplete: false
     },
     template: "<App/>",
     components: { App:appObjects.App },
     mounted: function () {
-        if (this.storeConfig.storeName && this.storeConfig.storeName.length) document.title = this.storeConfig.storeName;
+        document.title = "MoquiCon";
         var storeInfo = this.storeInfo;
         if (storeInfo.apiKey && storeInfo.apiKey.length) { this.apiKey = storeInfo.apiKey; storeInfo.apiKey = null; }
         if (storeInfo.moquiSessionToken && storeInfo.moquiSessionToken.length) {
@@ -1665,3 +1723,4 @@ var storeApp = new Vue({
             this.customerInfo = storeInfo.customerInfo; storeInfo.customerInfo = null; }
     }
 });
+
