@@ -1308,21 +1308,21 @@ a:hover {
     font-size: 45px;
 }
 
-.ic {
+.schedule-icon {
     font-size: 45px;
     color: #212529;
 }
 
-.ic:hover {
+.schedule-icon:hover {
     color: #dc3546;
 }
 
-.far {
+.date-icon {
     font-size: 45px;
     color: #212529;
 }
 
-.far:hover {
+.date-icon:hover {
     color: #007bff;
 }
 
@@ -1335,12 +1335,12 @@ a:hover {
         font-size: 45px;
     }
 
-    .ic {
+    .schedule-icon {
         font-size: 45px;
         padding: 10% 70% 10% 0%;
     }
 
-    .far {
+    .date-icon {
         font-size: 45px;
         padding: 10% 50% 10% 0%;
     }
@@ -1351,12 +1351,12 @@ a:hover {
         font-size: 35px;
     }
 
-    .ic {
+    .schedule-icon {
         font-size: 35px;
         padding: 10% 60% 10% 0%;
     }
 
-    .far {
+    .date-icon {
         font-size: 35px;
         padding: 10% 50% 10% 0%;
     }
@@ -1367,12 +1367,12 @@ a:hover {
         font-size: 35px;
     }
 
-    .ic {
+    .schedule-icon {
         font-size: 35px;
         padding: 10% 55% 10% 0%;
     }
 
-    .far {
+    .date-icon {
         font-size: 35px;
         padding: 10% 50% 10% 0%;
     }
@@ -1383,12 +1383,12 @@ a:hover {
         font-size: 30px;
     }
 
-    .ic {
+    .schedule-icon {
         font-size: 30px;
         padding: 10% 60% 10% 0%;
     }
 
-    .far {
+    .date-icon {
         font-size: 30px;
         padding: 10% 50% 10% 0%;
     }
@@ -1400,12 +1400,12 @@ a:hover {
         font-size: 30px;
     }
 
-    .ic {
+    .schedule-icon {
         font-size: 30px;
         padding: 10% 65% 10% 0%;
     }
 
-    .far {
+    .date-icon {
         font-size: 30px;
         padding: 10% 50% 10% 0%;
     }

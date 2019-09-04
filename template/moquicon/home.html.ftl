@@ -12,7 +12,7 @@
             <div class="row justify-content-center">
                 <div class="info-splash">
                     <a href="/moquicon/schedule">
-                        <i class="far fa-calendar-alt"></i>
+                        <i class="date-icon far fa-calendar-alt"></i>
                     </a>
                     <h1 class="home-text">Oct 11-12, 2019</h1>
                 </div>
@@ -20,7 +20,7 @@
             <div class="row justify-content-center">
                 <div class="info-splash">
                     <a href="/moquicon/venue">
-                        <i class="ic fas fa-map-marker-alt"></i>
+                        <i class="schedule-icon ic fas fa-map-marker-alt"></i>
                     </a>
                     <h1 class="home-text">San Diego, CA</h1>
                 </div>
