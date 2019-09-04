@@ -447,6 +447,10 @@ a:hover { text-decoration: none; }
     .ic {
         font-size: 60px;
     }
+    .top-middle-text {
+        font-size: 40px;
+        font-weight: bold;
+    }
     .bottom-middle-text {
         font-size: 20px;
         font-weight: bold;
