@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="d-flex flex-column moqui-navbar">
         <div class="container d-flex flex-row main-navbar">
-            <a class="navbar-brand d-none d-sm-block"  href="/moquicon">
+            <a class="navbar-brand d-none d-sm-block"  href="/">
                 <img height="60px" class="moqui-logo moqui-logo1" src="/moquicon/assets/moqui-logo.svg" alt="">
                 <span class="navbar-title">MoquiCon</span>
             </a>
