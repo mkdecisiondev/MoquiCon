@@ -69,7 +69,7 @@
                     </li>
                 <#else>
                     <li class="nav-item">
-                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>
+                        <a href="/moquicon/d#/account/create" class="nav-link"><i class="fas fa-user-plus"></i> Join Now</a>
                     </li>
                     <li class="nav-item">
                         <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
@@ -90,10 +90,11 @@
                     <#else>
                         <a class="nav-link pointer" data-toggle="modal" data-target="#emptyCartModal">
                     </#if>
+                    <#if cartCount gt 0>
                         <span class="cart-quantity" id="cart-quantity">
-
                             ${cartCount}
                         </span>
+                    </#if>
                         <i class="fa fa-shopping-cart"></i>  
                         Cart
                     </a>
