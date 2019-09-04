@@ -11,7 +11,14 @@
 
 <body>
     <div id="store-root">
-        ${sri.renderSubscreen()}
+        <div class="main-content">
+            ${sri.renderSubscreen()}
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-center">Built on Moqui Framework</p>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

@@ -4,6 +4,13 @@
     color: #2c3e50;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
 }
 
 /* General, Bootstrap Overrides */
@@ -1286,7 +1293,16 @@ a:hover {
     font-size: 1.3rem;
 }
 
+#venue-text-sm {
+    font-size: 1.2rem;
+}
+
 #venue-btn {
+    width: 80%;
+    margin-top: 12%;
+}
+
+#venue-btn-text {
     color: white;
 }
 
@@ -1314,22 +1330,24 @@ a:hover {
     padding: 10% 70% 10% 0%;
 }
 
-.schedule-icon:hover {
-    color: #dc3546;
+.top {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
-.date-icon {
-    font-size: 45px;
-    color: #212529;
-    padding: 10% 50% 10% 0%;
+.top-middle {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.date-icon:hover {
-    color: #007bff;
-}
-
-.info-splash {
-    display: flex;
+.bottom-middle {
+    position: absolute;
+    top: 93%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 1200px) {
@@ -1337,14 +1355,16 @@ a:hover {
         font-size: 45px;
     }
 
-    .schedule-icon {
-        font-size: 45px;
-        padding: 10% 70% 10% 0%;
+    .ic {
+        font-size: 100px;
     }
-
-    .date-icon {
-        font-size: 45px;
-        padding: 10% 50% 10% 0%;
+    .top-middle-text {
+        font-size: 80px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 46px;
+        font-weight: bold;
     }
 }
 
@@ -1353,14 +1373,16 @@ a:hover {
         font-size: 35px;
     }
 
-    .schedule-icon {
-        font-size: 35px;
-        padding: 10% 60% 10% 0%;
+    .ic {
+        font-size: 100px;
     }
-
-    .date-icon {
-        font-size: 35px;
-        padding: 10% 50% 10% 0%;
+    .top-middle-text {
+        font-size: 65px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 36px;
+        font-weight: bold;
     }
 }
 
@@ -1369,14 +1391,16 @@ a:hover {
         font-size: 35px;
     }
 
-    .schedule-icon {
-        font-size: 35px;
-        padding: 10% 55% 10% 0%;
+    .ic {
+        font-size: 80px;
     }
-
-    .date-icon {
-        font-size: 35px;
-        padding: 10% 50% 10% 0%;
+    .top-middle-text {
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 26px;
+        font-weight: bold;
     }
 }
 
@@ -1385,14 +1409,16 @@ a:hover {
         font-size: 30px;
     }
 
-    .schedule-icon {
-        font-size: 30px;
-        padding: 10% 60% 10% 0%;
+    .ic {
+        font-size: 60px;
     }
-
-    .date-icon {
-        font-size: 30px;
-        padding: 10% 50% 10% 0%;
+    .top-middle-text {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 20px;
+        font-weight: bold;
     }
 }
 
@@ -1402,13 +1428,42 @@ a:hover {
         font-size: 30px;
     }
 
-    .schedule-icon {
-        font-size: 30px;
-        padding: 10% 65% 10% 0%;
+    .ic {
+        font-size: 50px;
     }
+    .top-middle-text {
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
 
-    .date-icon {
-        font-size: 30px;
-        padding: 10% 50% 10% 0%;
-    }
+.venue-title {
+    padding: 1.5% 0%;
+    margin-bottom: 2%;
+    color: white;
+    background-color: #666666;
+}
+
+.schedule-title {
+    padding: 1.5% 0%;
+    margin-bottom: 2%;
+    color: white;
+    background-color: #666666;
+}
+
+.venue-image {
+    width: 90%;
+    padding: 5% 0%;
+}
+
+.venue-box-1 {
+    padding-top: 5%;
+}
+
+.venue-map {
+    padding-bottom: 3%;
 }

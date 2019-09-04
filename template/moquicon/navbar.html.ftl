@@ -1,26 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="d-flex flex-column moqui-navbar">
         <div class="container d-flex flex-row main-navbar">
-            <a class="navbar-brand d-none d-sm-block"  href="/moquicon">
+            <a class="navbar-brand d-none d-sm-block"  href="/">
                 <img height="60px" class="moqui-logo moqui-logo1" src="/moquicon/assets/moqui-logo.svg" alt="">
                 <span class="navbar-title">MoquiCon</span>
             </a>
-            <a class="navbar-brand d-block d-sm-none" href="/moquicon">
+            <a class="navbar-brand d-block d-sm-none" href="/">
                 <span class="navbar-title">MoquiCon</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_collapse1" 
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div class="navbar-collapse collapse">
-                <!-- Right aligned nav items -->
-                <ul class="navbar-nav ml-auto">
-                    <div class="text-secondary">
-                        <span class="navbar-pop-title">MoquiCon 2019</span>
-                    </div>
-                </ul>
-            </div>
         </div>
         <div id="nav_collapse1" class="container navbar-collapse collapse">
             <ul class="navbar-nav"><li class="nav-item dropdown">
@@ -76,13 +67,13 @@
                             </form>
                         </div>
                     </li>
-<#--                <#else>-->
-<#--                    <li class="nav-item">-->
-<#--                        <a href="/moquicon/d#/account/create" class="nav-link">Join Now</a>-->
-<#--                    </li>-->
-<#--                    <li class="nav-item">-->
-<#--                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>-->
-<#--                    </li>-->
+                <#else>
+                    <li class="nav-item">
+                        <a href="/moquicon/d#/account/create" class="nav-link"><i class="fas fa-user-plus"></i> Join Now</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
+                    </li>
                 </#if>
 
                  <#assign cartCount = 0>
@@ -99,21 +90,14 @@
                     <#else>
                         <a class="nav-link pointer" data-toggle="modal" data-target="#emptyCartModal">
                     </#if>
+                    <#if cartCount gt 0>
                         <span class="cart-quantity" id="cart-quantity">
-
                             ${cartCount}
                         </span>
+                    </#if>
                         <i class="fa fa-shopping-cart"></i>  
                         Cart
                     </a>
-                </li>
-                <li class="nav-item d-block d-sm-block d-md-none">
-                    <div class="search-input">
-                        <input type="text" placeholder="Search...">
-                        <button class="search-button">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -137,4 +121,4 @@
         </div>
     </div>
 </div>
-</div>
+
