@@ -398,9 +398,11 @@ a:hover { text-decoration: none; }
     }
     .top-middle-text {
         font-size: 80px;
+        font-weight: bold;
     }
     .bottom-middle-text {
         font-size: 46px;
+        font-weight: bold;
     }
 }
 
@@ -413,9 +415,11 @@ a:hover { text-decoration: none; }
     }
     .top-middle-text {
         font-size: 65px;
+        font-weight: bold;
     }
     .bottom-middle-text {
         font-size: 36px;
+        font-weight: bold;
     }
 }
 
@@ -428,9 +432,11 @@ a:hover { text-decoration: none; }
     }
     .top-middle-text {
         font-size: 50px;
+        font-weight: bold;
     }
     .bottom-middle-text {
         font-size: 26px;
+        font-weight: bold;
     }
 }
 
@@ -443,6 +449,7 @@ a:hover { text-decoration: none; }
     }
     .bottom-middle-text {
         font-size: 20px;
+        font-weight: bold;
     }
 }
 
@@ -456,8 +463,10 @@ a:hover { text-decoration: none; }
     }
     .top-middle-text {
         font-size: 28px;
+        font-weight: bold;
     }
     .bottom-middle-text {
         font-size: 16px;
+        font-weight: bold;
     }
 }
