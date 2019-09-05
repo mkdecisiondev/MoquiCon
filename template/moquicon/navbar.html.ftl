@@ -3,18 +3,19 @@
         <div class="container d-flex flex-row main-navbar">
             <a class="navbar-brand d-none d-sm-block"  href="/">
                 <img height="60px" class="moqui-logo moqui-logo1" src="/moquicon/assets/moqui-logo.svg" alt="">
-                <span class="navbar-title">MoquiCon</span>
+                <span class="font-italic navbar-title">MoquiCon</span>
             </a>
             <a class="navbar-brand d-block d-sm-none" href="/">
-                <span class="navbar-title">MoquiCon</span>
+                <span class="font-italic navbar-title">MoquiCon</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_collapse1" 
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#nav_collapse1"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
         <div id="nav_collapse1" class="container navbar-collapse collapse">
-            <ul class="navbar-nav"><li class="nav-item dropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Tickets <i class="fas fa-angle-down icon-down"></i>
                     </a>
