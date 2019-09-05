@@ -1330,6 +1330,24 @@ a:hover {
     padding: 10% 70% 10% 0%;
 }
 
+.schedule-icon:hover {
+    color: #dc3546;
+}
+
+.date-icon {
+    font-size: 45px;
+    color: #212529;
+    padding: 10% 50% 10% 0%;
+}
+
+.date-icon:hover {
+    color: #007bff;
+}
+
+.info-splash {
+    display: flex;
+}
+
 .top {
     position: relative;
     text-align: center;
@@ -1355,8 +1373,14 @@ a:hover {
         font-size: 45px;
     }
 
-    .ic {
-        font-size: 100px;
+    .schedule-icon {
+        font-size: 45px;
+        padding: 10% 70% 10% 0%;
+    }
+
+    .date-icon {
+        font-size: 45px;
+        padding: 10% 50% 10% 0%;
     }
     .top-middle-text {
         font-size: 80px;
@@ -1373,8 +1397,14 @@ a:hover {
         font-size: 35px;
     }
 
-    .ic {
-        font-size: 100px;
+    .schedule-icon {
+        font-size: 35px;
+        padding: 10% 60% 10% 0%;
+    }
+
+    .date-icon {
+        font-size: 35px;
+        padding: 10% 50% 10% 0%;
     }
     .top-middle-text {
         font-size: 65px;
@@ -1391,8 +1421,14 @@ a:hover {
         font-size: 35px;
     }
 
-    .ic {
-        font-size: 80px;
+    .schedule-icon {
+        font-size: 35px;
+        padding: 10% 55% 10% 0%;
+    }
+
+    .date-icon {
+        font-size: 35px;
+        padding: 10% 50% 10% 0%;
     }
     .top-middle-text {
         font-size: 50px;
@@ -1409,8 +1445,14 @@ a:hover {
         font-size: 30px;
     }
 
-    .ic {
-        font-size: 60px;
+    .schedule-icon {
+        font-size: 30px;
+        padding: 10% 60% 10% 0%;
+    }
+
+    .date-icon {
+        font-size: 30px;
+        padding: 10% 50% 10% 0%;
     }
     .top-middle-text {
         font-size: 40px;
@@ -1428,8 +1470,14 @@ a:hover {
         font-size: 30px;
     }
 
-    .ic {
-        font-size: 50px;
+    .schedule-icon {
+        font-size: 30px;
+        padding: 10% 65% 10% 0%;
+    }
+
+    .date-icon {
+        font-size: 30px;
+        padding: 10% 50% 10% 0%;
     }
     .top-middle-text {
         font-size: 28px;
