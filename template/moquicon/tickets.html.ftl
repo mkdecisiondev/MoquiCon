@@ -40,7 +40,6 @@
             <div class="mb-3">
                 <a href="/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
             </div>
-                
             <#else>
             <div class="mb-3">
                 <a href="/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
