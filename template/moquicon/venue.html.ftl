@@ -12,12 +12,12 @@
                 <img class="venue-image" class="img-fluid" src="/moquicon/assets/venuepic.jpg" alt="">
             </div>
         </div> 
-        <div class="col-md-6 align-middle">
+        <div class="col-md-6 align-middle my-auto">
             <p class="venue-box-1" id="venue-text-sm">
                 MK’s Downtown San Diego office is within walking distance of numerous attractions and hotels. MoquiCon 2019 will be held in MK’s Downtown office, unless larger accommodations are necessary. Event attendees will be notified of location changes at least 7 days before the event.
             </p>
             <div class="row justify-content-center">
-                <button class="btn btn-info" id="venue-btn">
+                <button class="btn btn-info my-3" id="venue-btn">
                     <a id="venue-btn-text" target="_blank"
                             href="https://www.hotels.com/search.do?resolved-location=NEIGHBORHOOD%3A1812291%3AUNKNOWN%3AUNKNOWN&destination-id=1812291&q-destination=Downtown%20San%20Diego,%20San%20Diego,%20California,%20United%20States%20of%20America&q-check-in=2019-10-11&q-check-out=2019-10-13&q-rooms=1&q-room-0-adults=1&q-room-0-children=0">
                         Find nearby hotels
