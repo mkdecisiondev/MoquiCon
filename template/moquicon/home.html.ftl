@@ -22,7 +22,7 @@
                     <a href="/moquicon/schedule">
                         <i class="date-icon far fa-calendar-alt"></i>
                     </a>
-                    <h1 class="home-text">Oct 11-12, 2019</h1>
+                    <h1 class="home-text ml-2">Oct 11-12, 2019</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -30,14 +30,14 @@
                     <a href="/moquicon/venue">
                         <i class="schedule-icon ic fas fa-map-marker-alt"></i>
                     </a>
-                    <h1 class="home-text">San Diego, CA</h1>
+                    <h1 class="home-text ml-2">San Diego, CA</h1>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
             <h1 class="home-text">Hosted By</h1>
             <a href="https://mkdecision.com/" target="_blank">
-                <img class="mk" class="img-fluid" src="/moquicon/assets/small-logo.png" alt="">
+                <img class="mk" class="img-fluid" height="71" width="200" src="/moquicon/assets/small-logo.png" alt="">
             </a>
         </div>
     </div>
