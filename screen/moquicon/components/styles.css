@@ -1183,31 +1183,34 @@ a:hover {
 
 /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
 @media screen and (max-width: 600px) {
-  .home-text {
-    font-size: 30px;
-  }
 
-  .schedule-icon {
-    font-size: 30px;
-    padding: 10% 65% 10% 0%;
-  }
+    .home-text {
+        font-size: 30px;
+    }
 
-  .date-icon {
-    font-size: 30px;
-    padding: 10% 50% 10% 0%;
-  }
-  .top-middle-text {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  .bottom-middle-text {
-    font-size: 16px;
-    font-weight: bold;
-  }
+    .schedule-icon {
+        font-size: 30px;
+        padding: 10% 65% 10% 0%;
+    }
 
-  .account-text {
-    order: -1;
-  }
+    .date-icon {
+        font-size: 30px;
+        padding: 10% 50% 10% 0%;
+    }
+    .top-middle-text {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .bottom-middle-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .my-orders-title {
+        font-size: 22px;
+    }
+    .account-text {
+      order: -1;
+    }
 }
 
 .venue-title {
