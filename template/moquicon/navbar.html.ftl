@@ -17,7 +17,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Buy Ticket <i class="fas fa-angle-down icon-down"></i>
+                        Get Ticket <i class="fas fa-angle-down icon-down"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_PT_2019">
