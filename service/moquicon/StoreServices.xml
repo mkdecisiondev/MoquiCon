@@ -97,7 +97,7 @@ along with this software (see the LICENSE.md file). If not, see
                 <if condition="storeWikiContent.spaceTypeEnumId == 'PstTmpSrv'"><then>
                     <!-- special case for PstTmpSrv (server rendered templates), use internal resource location -->
                     <if condition="!templateServerWikiSpaceId">
-                        <service-call name="popstore.StoreServices.get#WikiSpaceByType" out-map="spaceOut" out-map-add-to-existing="false"
+                        <service-call name="moquicon.StoreServices.get#WikiSpaceByType" out-map="spaceOut" out-map-add-to-existing="false"
                                 in-map="[productStoreId:productStoreId, spaceTypeEnumId:storeWikiContent.spaceTypeEnumId, locale:locale]"/>
                         <set field="templateServerWikiSpaceId" from="spaceOut.wikiSpaceId"/>
                     </if>

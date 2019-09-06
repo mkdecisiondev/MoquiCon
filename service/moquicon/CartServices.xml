@@ -72,34 +72,34 @@ General Order Placement and eCommerce Usage
     </service>
     <service verb="get" noun="CartInfo">
         <description>Get information for current cart order (cartOrderId managed server side)</description>
-        <implements service="popstore.CartServices.interface#OrderInfo"/>
+        <implements service="moquicon.CartServices.interface#OrderInfo"/>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!cartOrderId"><return/></if>
-            <service-call name="popstore.CartServices.get#OrderInfoInternal" in-map="[orderId:cartOrderId]" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#OrderInfoInternal" in-map="[orderId:cartOrderId]" out-map="context"/>
         </actions>
     </service>
     <service verb="get" noun="OrderInfo">
         <description>Get information for a specific order, must be associated with active customer</description>
-        <implements service="popstore.CartServices.interface#OrderInfo"/>
+        <implements service="moquicon.CartServices.interface#OrderInfo"/>
         <in-parameters>
             <parameter name="orderId" required="true"/>
         </in-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer, cannot view order" public="true" type="danger"/></if>
 
             <entity-find entity-name="OrderPart" list="orderPartList">
                 <econdition field-name="orderId"/><econdition field-name="customerPartyId"/></entity-find>
             <if condition="!orderPartList"><return message="Order ${orderId} not found or not owned by active customer" public="true" type="danger"/></if>
 
-            <service-call name="popstore.CartServices.get#OrderInfoInternal" in-map="[orderId:orderId]" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#OrderInfoInternal" in-map="[orderId:orderId]" out-map="context"/>
         </actions>
     </service>
     <service verb="get" noun="OrderInfoInternal">
         <description>Internal service to get order info (for cart or order history);
             get#CartInfo restricts to server side managed cartOrderId; get#OrderInfo restricts by active customerPartyId</description>
-        <implements service="popstore.CartServices.interface#OrderInfo"/>
+        <implements service="moquicon.CartServices.interface#OrderInfo"/>
         <in-parameters>
             <parameter name="orderId" required="true"/>
         </in-parameters>
@@ -173,7 +173,7 @@ General Order Placement and eCommerce Usage
             <parameter name="orderInfoList" type="List"><parameter name="orderInfo" type="Map"/></parameter>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer, cannot get orders" public="true" type="warning"/></if>
 
             <entity-find entity-name="mantle.order.OrderHeaderAndPart" list="existingOrderList">
@@ -198,7 +198,7 @@ General Order Placement and eCommerce Usage
     </service>
 
     <service verb="add" noun="Product" authenticate="anonymous-all">
-        <implements service="popstore.CartServices.get#CartInfo"/>
+        <implements service="moquicon.CartServices.get#CartInfo"/>
         <in-parameters>
             <parameter name="productId" required="true"/>
             <parameter name="quantity" type="BigDecimal" default="1.0"/>
@@ -211,13 +211,13 @@ General Order Placement and eCommerce Usage
             <set field="shipmentMethodEnumId" from="'ShMthGround'"/>
             <set field="sessionAttributes" from="ec.web.sessionAttributes"/>
 
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <set field="orderId" from="cartOrderId"/>
             <set field="defaultOrderParameters" from="[salesChannelEnumId:'ScWeb']" />
             <service-call name="mantle.order.OrderServices.add#OrderProductQuantity" in-map="context + defaultOrderParameters" out-map="addOut"/>
             <set field="sessionAttributes.cartOrderId" from="addOut.orderId"/>
 
-            <service-call name="popstore.CartServices.get#CartInfo" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#CartInfo" out-map="context"/>
         </actions>
     </service>
 
@@ -230,7 +230,7 @@ General Order Placement and eCommerce Usage
         <actions>
 
            <if condition="quantity == 0">
-                <service-call name="popstore.CartServices.delete#OrderItem"
+                <service-call name="moquicon.CartServices.delete#OrderItem"
                     in-map="[orderId:orderId, orderItemSeqId:orderItemSeqId]"/>
                 <else>
                     <service-call name="mantle.order.OrderServices.update#OrderItem"
@@ -256,7 +256,7 @@ General Order Placement and eCommerce Usage
             <parameter name="shippingOptions"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!cartOrderId"><return message="Cart is empty" public="true" type="warning"/></if>
 
             <entity-find-one entity-name="mantle.order.OrderHeader" value-field="orderHeader">
@@ -291,7 +291,7 @@ General Order Placement and eCommerce Usage
             <parameter name="paymentId"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!cartOrderId"><return message="Cart is empty" public="true" type="warning"/></if>
             <set field="orderId" from="cartOrderId"/>
 
@@ -302,7 +302,7 @@ General Order Placement and eCommerce Usage
     </service>
 
     <service verb="place" noun="CartOrder">
-        <implements service="popstore.CartServices.interface#OrderInfo"/>
+        <implements service="moquicon.CartServices.interface#OrderInfo"/>
         <in-parameters>
             <parameter name="cardSecurityCodeByPaymentId" type="Map"/>
         </in-parameters>
@@ -311,7 +311,7 @@ General Order Placement and eCommerce Usage
             <parameter name="statusChanged" type="Boolean"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!cartOrderId"><return message="Cart is empty" public="true" type="warning"/></if>
             <set field="orderId" from="cartOrderId"/>
 
@@ -325,7 +325,7 @@ General Order Placement and eCommerce Usage
             <!-- place order -->
             <service-call name="mantle.order.OrderServices.place#Order" in-map="[orderId:orderId]" out-map="context"/>
             <!-- get order info to return for confirmation -->
-            <service-call name="popstore.CartServices.get#OrderInfoInternal" in-map="[orderId:orderId]" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#OrderInfoInternal" in-map="[orderId:orderId]" out-map="context"/>
             <!-- if all is well we're done with this cart order -->
             <script>ec.web.sessionAttributes.remove("cartOrderId")</script>
         </actions>
