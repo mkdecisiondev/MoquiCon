@@ -37,9 +37,13 @@
             </div>
 
             <#if product.productId == 'MOQUICON_PT_2019'>
+            <div class="mb-3">
                 <a href="/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
+            </div>
             <#else>
+            <div class="mb-3">
                 <a href="/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
+            </div>
             </#if>
         </div>
         <div class="col-sm-12 col-md-6">

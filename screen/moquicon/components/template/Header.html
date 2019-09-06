@@ -24,7 +24,7 @@
                         </a>
                         <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_VT_2019">
                             Virtual Tickets
-                        </a>s
+                        </a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -79,12 +79,6 @@
                     <router-link :to="'/checkout'" tag="a" class="nav-link">
                         <span class="cart-quantity">{{productsQuantity}}</span> <i class="fa fa-shopping-cart"></i> Cart
                     </router-link>
-                </li>
-                <li class="nav-item d-block d-sm-block d-md-none">
-                    <form class="search-input" @submit.prevent="searchProduct" method="post">
-                        <input type="text" placeholder="Search..." v-model="searchText">
-                        <button class="search-button" type="submit"><i class="fa fa-search"></i></button>
-                    </form>
                 </li>
             </ul>
         </div>

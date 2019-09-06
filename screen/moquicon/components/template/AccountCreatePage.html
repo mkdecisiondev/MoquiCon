@@ -1,13 +1,14 @@
 <div>
-    <navbar sub-bar="true"/>
+    <navbar sub-bar="true" />
     <div class="container account-container">
         <br>
+        <h1 class="text-left">Join MoquiCon 2019</h1>
+        <p style="font-size: 0.9em;">
+            Welcome. You're just one step away from access to MoquiCon 2019.
+        </p>
         <div class="row">
+
             <form class="col col-lg-7 offset-lg-1" @submit.prevent="createAccount" method="post">
-                <h1 class="text-left">Join MoquiCon 2019</h1>
-                <p style="font-size: 0.9em;">
-                    Welcome. You're just one step away from access to MoquiCon 2019.
-                </p>
                 <div v-if="errorMessage != null && errorMessage != ''" class="alert alert-primary" role="alert">
                     {{errorMessage}}
                 </div>
@@ -58,7 +59,7 @@
             <div class="col-lg-1 d-none d-lg-block d-xl-block">
                 <div class="split-account"></div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-lg-3">
+            <div class="account-text col-xs-12 col-sm-12 col-lg-3">
                 <p class="already-text">Already have an account?</p>
                 <router-link :to="'/login'" tag="a">
                     <p class="sign-in">Sign in here</p>
