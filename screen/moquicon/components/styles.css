@@ -1000,8 +1000,7 @@ a:hover {
 }
 
 #venue-btn {
-  width: 80%;
-  margin-top: 12%;
+    width: 80%;
 }
 
 #venue-btn-text {
@@ -1228,10 +1227,6 @@ a:hover {
 .venue-image {
   width: 90%;
   padding: 5% 0%;
-}
-
-.venue-box-1 {
-  padding-top: 5%;
 }
 
 .venue-map {
