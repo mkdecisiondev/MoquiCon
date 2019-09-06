@@ -23,11 +23,13 @@ along with this software (see the LICENSE.md file). If not, see
         <set field="productStore" from="storeInfo.productStore"/>
         <set field="wikiSpaceId" from="productStore?.wikiSpaceId"/>
 
-        <if condition="ec.user.userId">
-            <entity-find-one entity-name="mantle.party.PartyDetail" value-field="partyDetail">
-                <field-map field-name="partyId" from="ec.user.userId"/>
-            </entity-find-one>
-        </if>
+        <set field="sessionAttributes" from="ec.web.sessionAttributes"/>
+        <set field="userId" from="ec.user.userId"/>
+        <set field="partyId" from="ec.user.userAccount?.partyId ?: sessionAttributes.customerPartyId"/>
+        <if condition="!partyId">
+            <return message="No active customer"/></if>
+        <entity-find-one entity-name="mantle.party.PersonAndUserAccount" value-field="partyDetail"/>
+        <service-call name="mantle.party.ContactServices.get#PartyContactInfo" in-map="[partyId:partyId, telecomContactMechPurposeId: 'PhonePrimary', emailContactMechPurposeId:'EmailPrimary']" out-map="context"/>
     </always-actions>
 
     <transition name="config.js" read-only="true">

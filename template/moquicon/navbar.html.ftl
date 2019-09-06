@@ -17,14 +17,14 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tickets <i class="fas fa-angle-down icon-down"></i>
+                        Get Ticket <i class="fas fa-angle-down icon-down"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_PT_2019">
-                            Physical Tickets
+                            Physical Ticket
                         </a>
                         <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_VT_2019">
-                            Virtual Tickets
+                            Virtual Ticket
                         </a>
                     </div>
                 </li>
@@ -57,7 +57,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> 
-                            ${partyDetail.firstName} ${partyDetail.lastName} ${partyDetail.organizationName!} <i class="fas fa-angle-down icon-down"></i>
+                            ${partyDetail.firstName} ${partyDetail.lastName} <i class="fas fa-angle-down icon-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item item-color" href="/moquicon/d#/account">Account Settings</a>
