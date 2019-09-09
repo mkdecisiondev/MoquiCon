@@ -97,7 +97,7 @@
                         </div>
                         <!-- State -->
                         <div class="form-group row justify-content-between">
-                            <label for="state" class="col-form-label modal-text ml-3">State<span>&nbsp;*</span></label>
+                            <label for="state" class="col-form-label modal-text ml-3">State<span v-if="shippingAddress.countryGeoId == 'USA' || shippingAddress.countryGeoId == 'IND'">&nbsp;*</span></label>
                             <div class="col-sm-8 col-xs-12">
                                 <select v-if="shippingAddress.countryGeoId == 'USA' || shippingAddress.countryGeoId == 'IND'" id="state"
                                         v-model="shippingAddress.stateProvinceGeoId"
