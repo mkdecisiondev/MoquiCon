@@ -82,7 +82,7 @@ along with this software (see the LICENSE.md file). If not, see
                 <set field="moquiSessionToken" from="ec.web.sessionToken"/>
 
                 <!-- get customer info for convenience -->
-                <service-call name="popstore.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
+                <service-call name="moquicon.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
             </if>
         </actions>
     </service>
@@ -113,7 +113,7 @@ along with this software (see the LICENSE.md file). If not, see
                 ec.artifactExecution.disableAuthz()
                 if (ec.entity.find("moqui.security.UserAccount").condition("username", fbUser.email).count() == 0) {
                     // no UserAccount for the email and we should create one with corresponding party
-                    Map partiesByEmail = ec.service.sync().name("popstore.CustomerServices.find#PartyByEmail")
+                    Map partiesByEmail = ec.service.sync().name("moquicon.CustomerServices.find#PartyByEmail")
                             .parameters(emailAddress: fbUser.email).call();
                     def partyId
                     Set partyIds = partiesByEmail.partyIds;
@@ -233,7 +233,7 @@ along with this software (see the LICENSE.md file). If not, see
                 <set field="moquiSessionToken" from="ec.web.sessionToken"/>
 
                 <!-- get customer info for convenience -->
-                <service-call name="popstore.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
+                <service-call name="moquicon.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
             </if>
         </actions>
     </service>
@@ -280,7 +280,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="customerInfo" type="Map"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer"/></if>
             <set field="partyId" from="customerPartyId"/>
             <set field="orderId" from="cartOrderId"/>
@@ -290,7 +290,7 @@ along with this software (see the LICENSE.md file). If not, see
             <service-call name="mantle.party.ContactServices.store#PartyContactInfo" in-map="[partyId:partyId, telecomContactMechPurposeId: 'PhonePrimary', contactNumber: contactNumber, contactMechId: contactMechId]"
                 out-map="context"/>
 
-            <service-call name="popstore.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
+            <service-call name="moquicon.CustomerServices.get#CustomerInfo" out-map="customerInfo"/>
         </actions>
     </service>
 
@@ -361,7 +361,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="emailContactMechId"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer"/></if>
             <set field="partyId" from="customerPartyId"/>
             <set field="orderId" from="cartOrderId"/>
@@ -379,7 +379,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="paymentMethodId"/>
         </in-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer"/></if>
             <set field="partyId" from="customerPartyId"/>
             <set field="orderId" from="cartOrderId"/>
@@ -435,7 +435,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="emailContactMechId"/>
         </out-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer"/></if>
             <set field="partyId" from="customerPartyId"/>
             <set field="orderId" from="cartOrderId"/>
@@ -454,7 +454,7 @@ along with this software (see the LICENSE.md file). If not, see
             <parameter name="contactMechPurposeId"/>
         </in-parameters>
         <actions>
-            <service-call name="popstore.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
             <if condition="!customerPartyId"><return message="No active customer"/></if>
             <set field="partyId" from="customerPartyId"/>
             <set field="orderId" from="cartOrderId"/>

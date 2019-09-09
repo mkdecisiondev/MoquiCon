@@ -16,10 +16,10 @@ along with this software (see the LICENSE.md file). If not, see
         standalone="true" require-authentication="anonymous-view" allow-extra-path="true">
 
     <always-actions>
-        <service-call name="popstore.StoreServices.get#ProductStoreIdFromHostName" in-map="[requestHostName:ec.web.getHostName(false)]" out-map="productStoreIdContext"/>
+        <service-call name="moquicon.StoreServices.get#ProductStoreIdFromHostName" in-map="[requestHostName:ec.web.getHostName(false)]" out-map="productStoreIdContext"/>
         <set field="productStoreId" value="${productStoreIdContext.productStoreId ?: 'POPC_DEFAULT'}"/>
 
-        <service-call name="popstore.StoreServices.get#StoreInfo" in-map="[productStoreId:productStoreId]" out-map="storeInfo"/>
+        <service-call name="moquicon.StoreServices.get#StoreInfo" in-map="[productStoreId:productStoreId]" out-map="storeInfo"/>
         <set field="productStore" from="storeInfo.productStore"/>
         <set field="wikiSpaceId" from="productStore?.wikiSpaceId"/>
 
@@ -43,7 +43,7 @@ along with this software (see the LICENSE.md file). If not, see
                 else storeInfo.apiKey = null
                 storeInfo.moquiSessionToken = ec.web.sessionToken
                 String partyId = (ec.user.username ? ec.user.userAccount?.partyId : null) ?: ec.web.sessionAttributes.customerPartyId
-                if (partyId) { storeInfo.customerInfo = ec.service.sync().name("popstore.CustomerServices.get#CustomerInfo").call() }
+                if (partyId) { storeInfo.customerInfo = ec.service.sync().name("moquicon.CustomerServices.get#CustomerInfo").call() }
                 // generate and send the JS response
                 String storeInfoJson = groovy.json.JsonOutput.toJson(storeInfo)
                 String jsText = """
@@ -58,7 +58,7 @@ var storeInfo = ${storeInfoJson};
 
     <transition name="logOut" read-only="true">
         <actions>
-            <service-call name="popstore.CustomerServices.logout#Customer"/>
+            <service-call name="moquicon.CustomerServices.logout#Customer"/>
         </actions>
         <default-response url="${redirectPath ? redirectPath : '.'}"/>
         <error-response url="${redirectPath ? redirectPath : '.'}"/>
@@ -72,16 +72,16 @@ var storeInfo = ${storeInfoJson};
         <set field="browseRootCategory" from="storeInfo.categoryByType.PsctBrowseRoot"/>
         <set field="browseRootCategoryId" from="browseRootCategory?.productCategoryId"/>
         <!-- get browseRootCategoryInfo for subCategoryList used in header, etc -->
-        <service-call name="popstore.ProductServices.get#CategoryInfo" out-map="browseRootCategoryInfo"
+        <service-call name="moquicon.ProductServices.get#CategoryInfo" out-map="browseRootCategoryInfo"
                 in-map="[productCategoryId:browseRootCategoryId]"/>
         <!-- get allProductsInfo for subCategoryList used in header, etc --> 
         <set field="allProducts" from="storeInfo.categoryByType.PsctSearch"/>
         <set field="allProductsId" from="storeInfo.categoryByType.PsctSearch?.productCategoryId"/>
-        <service-call name="popstore.ProductServices.get#CategoryInfo" out-map="allProductsInfo"
+        <service-call name="moquicon.ProductServices.get#CategoryInfo" out-map="allProductsInfo"
             in-map="[productCategoryId:allProductsId]"/>
 
         <!-- cartInfo for cart count in header/navbar -->
-        <service-call name="popstore.CartServices.get#CartInfo" out-map="cartInfo" in-map="context"/>
+        <service-call name="moquicon.CartServices.get#CartInfo" out-map="cartInfo" in-map="context"/>
 
         <!-- get settings used in subscreens -->
         <set field="template_server_root" from="storeInfo.settings.template_server_root" default-value="component://MoquiCon/template/moquicon/root.html.ftl"/>

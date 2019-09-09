@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a 
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-2.1.xsd">
+
+    <service verb="get" noun="ProductInfo">
+        <in-parameters>
+            <parameter name="productId" required="true"/>
+            <parameter name="priceUomId"/>
+            <parameter name="locale" default="ec.user.locale?.toString()"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters entity-name="mantle.product.Product" include="nonpk"/>
+
+            <parameter name="price" type="BigDecimal"/>
+            <parameter name="listPrice" type="BigDecimal"/>
+            <parameter name="priceUomId"/>
+            <parameter name="productId"/>
+
+            <parameter name="productClassDescription"/>
+            <parameter name="descriptionLong"/>
+            <parameter name="descriptionSmall"/>
+            <parameter name="contentList" type="List"><parameter name="content" type="Map">
+                <parameter name="productContentId"/><parameter name="productContentTypeEnumId"/>
+                <parameter name="description"/><parameter name="sequenceNum"/>
+            </parameter></parameter>
+            <parameter name="productRating"/>
+            <parameter name="standardFeatureList" type="List"><parameter name="dimension" type="Map"/></parameter>
+            <parameter name="dimensionList" type="List"><parameter name="dimension" type="Map"/></parameter>
+        </out-parameters>
+        <actions>
+            <entity-find-one entity-name="mantle.product.Product" value-field="product"/>
+            <if condition="product == null"><return error="true" message="Product not found with ID ${productId}"/></if>
+            <script>context.putAll(product)</script>
+
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <if condition="productStoreId">
+                <entity-find-one entity-name="mantle.product.store.ProductStore" value-field="productStore"/>
+                <if condition="!priceUomId"><set field="priceUomId" from="productStore?.defaultCurrencyUomId"/></if>
+                <set field="vendorPartyId" from="productStore?.organizationPartyId"/>
+            </if>
+            <service-call name="mantle.product.PriceServices.get#ProductPrice" out-map="priceMap"
+                    in-map="[productId:productId, priceUomId:priceUomId, productStoreId:productStoreId,
+                        vendorPartyId:vendorPartyId, customerPartyId:customerPartyId]"/>
+            <set field="price" from="priceMap.price"/>
+            <set field="listPrice" from="priceMap.listPrice"/>
+            <set field="priceUomId" from="priceMap.priceUomId"/>
+
+            <entity-find-one entity-name="moqui.basic.Enumeration" value-field="productClassEnum">
+                <field-map field-name="enumId" from="product.productClassEnumId"/></entity-find-one>
+            <set field="productClassDescription" from="productClassEnum?.description"/>
+
+            <entity-find entity-name="mantle.product.feature.ProductFeatureAndAppl" list="standardFeatureList" cache="true">
+                <date-filter/><econdition field-name="productId"/>
+                <econdition field-name="applTypeEnumId" value="PfatStandard"/>
+                <order-by field-name="productFeatureTypeEnumId"/><order-by field-name="description"/>
+            </entity-find>
+
+            <entity-find entity-name="mantle.product.ProductDimensionAndType" list="dimensionList" cache="true">
+                <econdition field-name="productId"/><order-by field-name="description"/></entity-find>
+
+            <entity-find entity-name="mantle.product.ProductContent" list="contentList" cache="true">
+                <date-filter/><econdition field-name="productId"/>
+                <order-by field-name="sequenceNum,-fromDate"/>
+            </entity-find>
+
+            <set field="productRating" from="0"/>
+            <!--<entity-find entity-name="mantle.product.ProductReview" list="productReviewList">
+                <date-filter/><econdition field-name="productId"/>
+                <order-by field-name="sequenceNum,-fromDate"/>
+            </entity-find>
+            <set field="sumaReview" from="0"/>
+            <set field="productReviewListSize" from="0"/>
+            <iterate list="productReviewList" entry="productReviewItem">
+                <set field="sumaReview" from="sumaReview + productReviewItem.productRating"/>
+                <set field="productReviewListSize" from="productReviewListSize + 1"/>
+            </iterate>
+            <if condition="productReviewListSize > 0">
+                <set field="productRating" from="sumaReview / productReviewListSize"/>
+            </if>-->
+
+            <if condition="locale">
+                <!-- filter after by locale to streamline cached find -->
+                <set field="langLocale" from="locale.contains('_') ? locale.substring(locale.indexOf('_')) : null"/>
+                <set field="contentList" from="contentList.findAll({ it.locale == null || it.locale == locale || it.locale == langLocale })"/>
+            </if>
+            <!-- some content types may have more than one record, long description just has one -->
+            <set field="descLongLocation" from="contentList.find({ 'PcntDescriptionLong' == it.productContentTypeEnumId })?.contentLocation"/>
+            <if condition="descLongLocation"><set field="descriptionLong" from="ec.resource.getLocationText(descLongLocation, true)"/></if>
+
+            <set field="descSmallLocation" from="contentList.find({ 'PcntDescription' == it.productContentTypeEnumId })?.contentLocation"/>
+            <if condition="descSmallLocation"><set field="descriptionSmall" from="ec.resource.getLocationText(descSmallLocation, true)"/></if>
+            <!-- <set field="imageSmallList" from="contentList.findAll({ 'PcntImageSmall' == it.productContentTypeEnumId })"/> -->
+        </actions>
+    </service>
+
+    <service verb="get" noun="ProductQuantity">
+        <in-parameters>
+            <parameter name="productId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productQuantity"/>
+        </out-parameters>
+        <actions>
+            <entity-find-one entity-name="mantle.product.asset.AssetAndDetail" value-field="asset">
+                <field-map field-name="productId" from="productId"/>
+                <field-map field-name="statusId" from="'AstAvailable'"/>
+                <field-map field-name="assetTypeEnumId" from="'AstTpInventory'"/>
+            </entity-find-one>
+            <if condition="!asset">
+                <return message="Asset not found"/>
+            </if>
+            <set field="productQuantity" from="asset.quantityOnHandTotal ? asset.quantityOnHandTotal : 0"/>
+        </actions>
+    </service>
+
+    <service verb="find" noun="ProductAvailability">
+        <description>
+            Create collection of product ids with availability flag.
+        </description>
+        <in-parameters>
+            <parameter name="productStoreId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productAvailability"/>
+        </out-parameters>
+        <actions>
+            <entity-find-one entity-name="mantle.product.store.ProductStore" value-field="productStore"/>
+            <set field="inventoryFacilityIds" type="List" from="[productStore.inventoryFacilityId]"/>
+            <entity-find entity-name="mantle.product.store.ProductStoreFacility" list="productStoreFacilities">
+                <econdition field-name="productStoreId"/>
+                <date-filter/>
+            </entity-find>
+            <iterate list="productStoreFacilities" entry="productStoreFacility">
+                <set field="inventoryFacilityIds" from="inventoryFacilityIds + productStoreFacility.facilityId"/>
+            </iterate>
+            <entity-find entity-name="mantle.product.asset.AssetSummaryView" list="productAssetSumList">
+                <econdition field-name="productAssetTypeEnumId" value="AstTpInventory"/>
+                <econdition field-name="facilityId" operator="in" from="inventoryFacilityIds"/>
+                <having-econditions combine="or">
+                    <econdition field-name="quantityOnHandTotal" operator="not-equals" from="0.0"/>
+                    <econdition field-name="availableToPromiseTotal" operator="not-equals" from="0.0"/>
+                </having-econditions>
+                <select-field field-name="productId"/>
+                <select-field field-name="availableToPromiseTotal"/>
+            </entity-find>
+            <set field="productAvailability" from="[:]"/>
+            <iterate list="productAssetSumList" entry="assetSum">
+                <script>
+                    productAvailability.put(assetSum.productId, assetSum.availableToPromiseTotal>0)
+                </script>
+            </iterate>
+        </actions>
+    </service>
+
+    
+    <service verb="find" noun="ProductContent">
+        <description>
+            Try to find ProductContent record of a specified type the product. If it is not found then either
+            product does not have a content of this type or this is a variant and we should check its virtual
+            parent for the same.
+        </description>
+        <in-parameters>
+            <parameter name="productId" required="true"/>
+            <parameter name="productContentTypeEnumId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productContent" type="EntityValue"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="mantle.product.ProductContent" list="productContentList" cache="true">
+                <econdition field-name="productContentTypeEnumId"/>
+                <econdition field-name="productId"/>
+                <date-filter/>
+            </entity-find>
+            <if condition="productContentList">
+                <set field="productContent" from="productContentList[0]"/>
+                <return/>
+            </if>
+            <!-- either no content of this type or productId refers to variant of a virtual product -->
+            <service-call name="moquicon.ProductServices.get#CatalogProductId" in-map="context" out-map="prodIdRes"/>
+            <if condition="productId != prodIdRes.productId">
+                <entity-find entity-name="mantle.product.ProductContent" list="productContentList" cache="true">
+                    <econdition field-name="productContentTypeEnumId"/>
+                    <econdition field-name="productId" from="prodIdRes.productId"/>
+                    <date-filter/>
+                </entity-find>
+                <if condition="productContentList">
+                    <set field="productContent" from="productContentList[0]"/>
+                </if>
+            </if>
+        </actions>
+    </service>
+
+
+    <service verb="get" noun="CategoryInfo">
+        <in-parameters>
+            <parameter name="productCategoryId" required="true"/>
+            <parameter name="locale"/>
+        </in-parameters>
+        <out-parameters>
+            <auto-parameters entity-name="mantle.product.category.ProductCategory" include="nonpk"/>
+            <parameter name="subCategoryList" type="List"><parameter name="categoryInfo" type="Map"/></parameter>
+        </out-parameters>
+        <actions>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+
+            <entity-find-one entity-name="mantle.product.category.ProductCategory" value-field="productCategory" cache="true"/>
+            <if condition="productCategory == null"><return error="true" message="Category not found with ID ${productCategoryId}"/></if>
+            <script>context.putAll(productCategory)</script>
+
+            <entity-find entity-name="mantle.product.category.ProductCategoryRollup" list="rollupList" cache="true">
+                <date-filter/><econdition field-name="parentProductCategoryId" from="productCategoryId"/>
+                <order-by field-name="sequenceNum"/>
+            </entity-find>
+
+            <set field="subCategoryList" from="[]"/>
+            <iterate list="rollupList" entry="rollup">
+                <entity-find-one entity-name="mantle.product.category.ProductCategory" value-field="productCategory" cache="true">
+                    <field-map field-name="productCategoryId" from="rollup.productCategoryId"/></entity-find-one>
+                <!-- TODO: ProductCategoryContent for smallImageInfo -->
+                <script>subCategoryList.add([productCategoryId:productCategory.productCategoryId, pseudoId:productCategory.pseudoId,
+                        categoryName:productCategory.categoryName, description:productCategory.description,
+                        smallImageInfo:smallImageInfo, sequenceNum:rollup.sequenceNum])</script>
+            </iterate>
+        </actions>
+    </service>
+
+    <service verb="get" noun="CategoryProducts">
+        <in-parameters>
+            <parameter name="productCategoryId" required="true"/>
+            <parameter name="priceUomId"/>
+            <parameter name="locale"/>
+            <parameter name="orderBy" default-value="sequenceNum"/>
+            <parameter name="pageIndex" default="0"/>
+            <parameter name="pageSize" default="100"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productList" type="List"><parameter name="productInfo" type="Map">
+                <parameter name="productId"/><parameter name="pseudoId"/><parameter name="productName"/><parameter name="description"/>
+                <parameter name="price" type="BigDecimal"/><parameter name="listPrice" type="BigDecimal"/><parameter name="priceUomId"/>
+                <parameter name="sequenceNum" type="Long"/>
+                <parameter name="smallImageInfo" type="Map"/><parameter name="mediumImageInfo" type="Map"/>
+            </parameter></parameter>
+            <parameter name="productList" type="List"><parameter name="document" type="Map"/></parameter>
+            <parameter name="productListCount" type="Integer"><description>The total count of hits, not just the
+                limited number returned.</description></parameter>
+            <parameter name="productListPageIndex" type="Integer"/>
+            <parameter name="productListPageSize" type="Integer"/>
+            <parameter name="productListPageMaxIndex" type="Integer"/>
+            <parameter name="productListPageRangeLow" type="Integer"/>
+            <parameter name="productListPageRangeHigh" type="Integer"/>
+        </out-parameters>
+        <actions>
+            <service-call name="moquicon.CartServices.get#ActiveOrderAndCustomer" out-map="context"/>
+            <if condition="productStoreId">
+                <entity-find-one entity-name="mantle.product.store.ProductStore" value-field="productStore" cache="true"/>
+                <if condition="!priceUomId"><set field="priceUomId" from="productStore?.defaultCurrencyUomId"/></if>
+                <set field="vendorPartyId" from="productStore?.organizationPartyId"/>
+            </if>
+
+            <!-- get entire cached list then paginate, for huge numbers of products in a category this is a bad approach (such sites should probably be purely search based) -->
+            <!-- use the name 'productList' so pagination out-parameters are created automatically -->
+            <entity-find entity-name="mantle.product.category.ProductCategoryMember" list="productList" cache="true">
+                <search-form-inputs default-order-by="${orderBy}"/>
+                <date-filter/><econdition field-name="productCategoryId"/>
+            </entity-find>
+            <set field="pcmList" from="productList"/>
+
+            <set field="productList" from="[]"/>
+            <iterate list="pcmList" entry="pcmp">
+                <entity-find-one entity-name="mantle.product.Product" value-field="product" cache="true">
+                    <field-map field-name="productId" from="pcmp.productId"/></entity-find-one>
+
+                <service-call name="mantle.product.PriceServices.get#ProductPrice" out-map="priceMap" out-map-add-to-existing="false"
+                        in-map="[productId:pcmp.productId, priceUomId:priceUomId, productStoreId:productStoreId,
+                                vendorPartyId:vendorPartyId, customerPartyId:customerPartyId]"/>
+
+                <set field="smallImageInfo" from="null"/>
+                <set field="mediumImageInfo" from="null"/>
+                <entity-find entity-name="mantle.product.ProductContent" list="productContentList" cache="true">
+                    <date-filter/><econdition field-name="productId" from="pcmp.productId"/>
+                    <order-by field-name="sequenceNum,-fromDate"/>
+                </entity-find>
+                <if condition="locale">
+                    <!-- filter after by locale to streamline cached find -->
+                    <set field="langLocale" from="locale.contains('_') ? locale.substring(locale.indexOf('_')) : null"/>
+                    <set field="productContentList" from="productContentList.findAll({ it.locale == null || it.locale == locale || it.locale == langLocale })"/>
+                </if>
+                <if condition="productContentList">
+                    <!-- medium can be PcntImageMedium or PcntImageLarge -->
+                    <set field="mediumImageInfo" from="productContentList.find({ 'PcntImageMedium'.equals(it.productContentTypeEnumId) })"/>
+                    <if condition="mediumImageInfo == null">
+                        <set field="mediumImageInfo" from="productContentList.find({ 'PcntImageLarge'.equals(it.productContentTypeEnumId) })"/></if>
+                    <!-- small can be PcntImageSmall or from medium we just looked up -->
+                    <set field="smallImageInfo" from="productContentList.find({ 'PcntImageSmall'.equals(it.productContentTypeEnumId) })"/>
+                    <if condition="smallImageInfo == null"><set field="smallImageInfo" from="mediumImageInfo"/></if>
+                </if>
+
+                <script>productList.add([productId:pcmp.productId, pseudoId:product.pseudoId, productName:product.productName,
+                        description:product.description, price:priceMap.price, listPrice:priceMap.listPrice, priceUomId:priceMap.priceUomId,
+                        sequenceNum:pcmp.sequenceNum, smallImageInfo:smallImageInfo, mediumImageInfo:mediumImageInfo])</script>
+            </iterate>
+        </actions>
+    </service>
+</services>
