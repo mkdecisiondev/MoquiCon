@@ -12,13 +12,15 @@ You should have received a copy of the CC0 Public Domain Dedication
 along with this software (see the LICENSE.md file). If not, see
 <http://creativecommons.org/publicdomain/zero/1.0/>.
 -->
-<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
         require-authentication="anonymous-view" allow-extra-path="true">
 
     <subscreens always-use-full-path="true"/>
 
     <!-- TODO: any of these needed at root level? as needed move to root.html.ftl -->
-    <pre-actions><script><![CDATA[
+    <pre-actions>
+        <script><![CDATA[
         footerScriptText = """
     <script>
         // default store configuration, settings may be reset by script returned by /content/settings.js (transition that calls StoreServices.get#StoreInfo)
@@ -106,9 +108,12 @@ along with this software (see the LICENSE.md file). If not, see
 
             """
         }
-    ]]></script></pre-actions>
+    ]]></script>
+    </pre-actions>
 
     <widgets>
-        <render-mode><text type="html"><![CDATA[<div id="app"></div>]]></text></render-mode>
+        <render-mode>
+            <text type="html"><![CDATA[<div id="app"></div>]]></text>
+        </render-mode>
     </widgets>
 </screen>

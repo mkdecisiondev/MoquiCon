@@ -10,7 +10,9 @@
 <div class="home-middle">
     <div class="row m-0">
         <div class="col-xs-6 mx-auto">
-            <button class="btn btn-block btn-primary my-3"><a id="home-button" href="/moquicon/tickets/MOQUICON_PT_2019">RESERVE A TICKET NOW FOR FREE</a></button>
+            <button class="btn btn-block btn-primary my-3">
+                <a id="home-button" href="/moquicon/tickets/MOQUICON_PT_2019">RESERVE A TICKET NOW FOR FREE</a>
+            </button>
         </div>
     </div>
 </div>

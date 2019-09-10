@@ -14,10 +14,13 @@
         <div class="alert alert-primary mt-3 mb-3" role="alert">
             <div class="row">
                 <div class="col-xs-12 col-md-9">
-                    <i class="far fa-check-square"></i> <span>You added a ${product.productName} to your shopping cart.</span>
+                    <i class="far fa-check-square"></i>
+                    <span>You added a ${product.productName} to your shopping cart.</span>
                 </div>
                 <div class="col-xs-12 col-md-3">
-                    <a class="float-right" href="/moquicon/d#/checkout">Go to Checkout <i class="fas fa-arrow-right"></i></a>
+                    <a class="float-right" href="/moquicon/d#/checkout">
+                        Go to Checkout <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -37,13 +40,13 @@
             </div>
 
             <#if product.productId == 'MOQUICON_PT_2019'>
-            <div class="mb-3">
-                <a href="/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
-            </div>
+                <div class="mb-3">
+                    <a href="/moquicon/tickets/MOQUICON_VT_2019">Want to attend virtually?</a>
+                </div>
             <#else>
-            <div class="mb-3">
-                <a href="/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
-            </div>
+                <div class="mb-3">
+                    <a href="/moquicon/tickets/MOQUICON_PT_2019">Want to attend in-person?</a>
+                </div>
             </#if>
         </div>
         <div class="col-sm-12 col-md-6">
@@ -74,8 +77,8 @@
                         -->
                     </div>
                     <div class="form-group col">
-                        <input type="hidden" value="${product.pseudoId}" name="productId" id="productId" />
-                        <input type="hidden" value="${product.priceUomId}" name="currencyUomId" />
+                        <input type="hidden" value="${product.pseudoId}" name="productId" id="productId"/>
+                        <input type="hidden" value="${product.priceUomId}" name="currencyUomId"/>
                         <input type="hidden" value="${ec.web.sessionToken}" name="moquiSessionToken"/>
                         <span class="product-description">Quantity</span>
                         <select class="form-control text-gdark" name="quantity" id="quantity">
@@ -104,7 +107,8 @@
                     </#if>
                 </div>
                 <#if inStock>
-                    <button onclick="onClickAddButton();" id="cartAdd" class="btn cart-form-btn col" type="submit" onclick="">
+                    <button onclick="onClickAddButton();" id="cartAdd" class="btn cart-form-btn col" type="submit"
+                            onclick="">
                         <i class="fa fa-shopping-cart"></i> Add to Cart
                     </button>
                 <#else>
@@ -118,18 +122,17 @@
 </div>
 
 
-
 <script>
 
-    document.body.onload = function() {
+    document.body.onload = function () {
         <#if isVirtual>
         var productAvailability = ${productAvailability?replace('=',':')};
         var variantIdList = [];
         <#list 0..variantsList.listFeatures.keySet()?size - 1  as x>
-        $('#variantProduct${x}').on('change', function() {
+        $('#variantProduct${x}').on('change', function () {
             var productVariantId = $('#productId').val();
             variantIdList[${x}] = this.value;
-            if(typeof(variantIdList[1]) != 'undefined') {
+            if (typeof (variantIdList[1]) != 'undefined') {
                 productVariantId = productVariantId + '_' + variantIdList[1] + '_' + variantIdList[0];
             } else {
                 productVariantId = productVariantId + '_' + variantIdList[0];
@@ -138,6 +141,7 @@
         </#list>
         </#if>
     }
+
     function onClickAddButton() {
         $('#spinner').show();
     }
