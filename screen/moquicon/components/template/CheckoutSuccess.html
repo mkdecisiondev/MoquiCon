@@ -16,7 +16,7 @@
                             class="mb-1" />
                         <span v-else></span> -->
                         <a v-if="item.itemTypeEnumId == 'ItemProduct'" class="order-link-text pl-3 align-top"
-                                     :href="'/moquicon/tickets/'+item.productId" tag="span">
+                                     :href="'/tickets/'+item.productId" tag="span">
                             {{item.itemDescription}}
                         </a>
                         <span v-else class="order-link-text pl-3 align-top">{{item.itemDescription}}</span>
@@ -61,7 +61,7 @@
                 <hr class="hr-title">
                 <div class="row mb-2">
                     <span class="col text-blight">ORDER NUMBER: </span>
-                    <a class="col order-link-text" :href="'/moquicon/d#/orders/'+orderList.orderHeader.orderId">
+                    <a class="col order-link-text" :href="'/d#/orders/'+orderList.orderHeader.orderId">
                         {{orderList.orderHeader.orderId}}
                     </a>
                 </div>
