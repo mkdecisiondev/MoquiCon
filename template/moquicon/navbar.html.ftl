@@ -20,32 +20,32 @@
                         Get Ticket <i class="fas fa-angle-down icon-down"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_PT_2019">
+                        <a class="dropdown-item item-color" href="/tickets/MOQUICON_PT_2019">
                             Physical Ticket
                         </a>
-                        <a class="dropdown-item item-color" href="/moquicon/tickets/MOQUICON_VT_2019">
+                        <a class="dropdown-item item-color" href="/tickets/MOQUICON_VT_2019">
                             Virtual Ticket
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/moquicon/venue">
+                    <a class="nav-link" href="/venue">
                         Venue
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/moquicon/schedule">
+                    <a class="nav-link" href="/schedule">
                         Schedule
                     </a>
                 </li>
 <#--                <li class="nav-item">-->
-<#--                    <a class="nav-link" href="/moquicon/sponsors">-->
+<#--                    <a class="nav-link" href="/sponsors">-->
 <#--                        Sponsors-->
 <#--                    </a>-->
 <#--                </li>-->
 
 <#--                <li class="nav-item">-->
-<#--                    <a class="nav-link" href="/moquicon/contact">-->
+<#--                    <a class="nav-link" href="/contact">-->
 <#--                        Contact-->
 <#--                    </a>-->
 <#--                </li>-->
@@ -60,20 +60,20 @@
                             ${partyDetail.firstName} ${partyDetail.lastName} <i class="fas fa-angle-down icon-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item item-color" href="/moquicon/d#/account">Account Settings</a>
-                            <a class="dropdown-item item-color" href="/moquicon/d#/orders">My Orders</a>
+                            <a class="dropdown-item item-color" href="/d#/account">Account Settings</a>
+                            <a class="dropdown-item item-color" href="/d#/orders">My Orders</a>
                             <div role="separator" class="dropdown-divider"></div>
-                            <form method="get" action="/moquicon/logOut">
+                            <form method="get" action="/logOut">
                                 <button type="submit" class="dropdown-item item-color">Signout</button>
                             </form>
                         </div>
                     </li>
                 <#else>
                     <li class="nav-item">
-                        <a href="/moquicon/d#/account/create" class="nav-link"><i class="fas fa-user-plus"></i> Join Now</a>
+                        <a href="/d#/account/create" class="nav-link"><i class="fas fa-user-plus"></i> Join Now</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/moquicon/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
+                        <a href="/d#/login" class="nav-link"><i class="fas fa-user"></i> Sign In</a>
                     </li>
                 </#if>
 
@@ -87,7 +87,7 @@
                     </#if>
                 <li class="nav-item">
                     <#if cartCount gt 0>
-                        <a class="nav-link" href="/moquicon/d#/checkout">
+                        <a class="nav-link" href="/d#/checkout">
                     <#else>
                         <a class="nav-link pointer" data-toggle="modal" data-target="#emptyCartModal">
                     </#if>
