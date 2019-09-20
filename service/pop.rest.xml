@@ -15,21 +15,19 @@ along with this software (see the LICENSE.md file). If not, see
 
 <!-- General Guideline Verbs: GET=find, POST=create/do, PUT=store (create or update), PATCH=update, DELETE=delete  -->
 
-<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-2.1.xsd"
-          name="pop" displayName="POP REST Store API" version="1.0.0" description="Services for eCommerce">
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/rest-api-2.1.xsd" name="pop" displayName="MoquiCon API" version="1.0.0" description="Services for eCommerce">
 
     <!-- Store Services -->
 
     <resource name="store" require-authentication="anonymous-view">
         <id name="productStoreId">
             <method type="get">
-                <service name="popstore.StoreServices.get#StoreInfo"/>
+                <service name="moquicon.StoreServices.get#StoreInfo"/>
             </method>
         </id>
         <resource name="search">
             <method type="get">
-                <service name="popstore.SearchServices.search#All"/>
+                <service name="moquicon.SearchServices.search#All"/>
             </method>
         </resource>
     </resource>
@@ -38,27 +36,27 @@ along with this software (see the LICENSE.md file). If not, see
 
     <resource name="login" require-authentication="anonymous-view">
         <method type="post">
-            <service name="popstore.CustomerServices.login#Customer"/>
+            <service name="moquicon.CustomerServices.login#Customer"/>
         </method>
     </resource>
     <resource name="loginFB" require-authentication="anonymous-view">
         <method type="post">
-            <service name="popstore.CustomerServices.loginFB#Customer"/>
+            <service name="moquicon.CustomerServices.loginFB#Customer"/>
         </method>
     </resource>
     <resource name="logout" require-authentication="anonymous-view">
         <method type="get">
-            <service name="popstore.CustomerServices.logout#Customer"/>
+            <service name="moquicon.CustomerServices.logout#Customer"/>
         </method>
     </resource>
     <resource name="register" require-authentication="anonymous-all">
         <method type="post">
-            <service name="popstore.CustomerServices.register#Customer"/>
+            <service name="moquicon.CustomerServices.register#Customer"/>
         </method>
     </resource>
     <resource name="resetPassword" require-authentication="anonymous-all">
         <method type="post">
-            <service name="popstore.CustomerServices.reset#Password"/>
+            <service name="moquicon.CustomerServices.reset#Password"/>
         </method>
     </resource>
 
@@ -66,7 +64,7 @@ along with this software (see the LICENSE.md file). If not, see
 
     <resource name="geos" require-authentication="anonymous-view">
         <method type="get">
-            <service name="popstore.StoreServices.get#Geos"/>
+            <service name="moquicon.StoreServices.get#Geos"/>
         </method>
         <id name="geoId">
             <method type="get">
@@ -81,12 +79,12 @@ along with this software (see the LICENSE.md file). If not, see
     </resource>
     <resource name="locale" require-authentication="anonymous-view">
         <method type="get">
-            <service name="popstore.StoreServices.get#Locales"/>
+            <service name="moquicon.StoreServices.get#Locales"/>
         </method>
     </resource>
     <resource name="timeZone" require-authentication="anonymous-view">
         <method type="get">
-            <service name="popstore.StoreServices.get#TimeZones"/>
+            <service name="moquicon.StoreServices.get#TimeZones"/>
         </method>
     </resource>
 
@@ -95,41 +93,41 @@ along with this software (see the LICENSE.md file). If not, see
     <resource name="products" require-authentication="anonymous-view">
         <id name="productId">
             <method type="get">
-                <service name="popstore.ProductServices.get#ProductInfo"/>
+                <service name="moquicon.ProductServices.get#ProductInfo"/>
             </method>
         </id>
 
         <resource name="reviews">
             <method type="get">
-                <service name="popstore.ProductServices.get#ProductReviews"/>
+                <service name="moquicon.ProductServices.get#ProductReviews"/>
             </method>
             <method type="post">
-                <service name="popstore.ProductServices.create#ProductReview"/>
+                <service name="moquicon.ProductServices.create#ProductReview"/>
             </method>
         </resource>
         <resource name="variants">
             <method type="get">
-                <service name="popstore.ProductServices.get#ProductVariantsDisplayInfo"/>
+                <service name="moquicon.ProductServices.get#ProductVariantsDisplayInfo"/>
             </method>
         </resource>
         <resource name="content">
             <method type="get">
-                <service name="popstore.ProductServices.find#ProductContent"/>
+                <service name="moquicon.ProductServices.find#ProductContent"/>
             </method>
         </resource>
         <resource name="productQuantity">
             <method type="get">
-                <service name="popstore.ProductServices.get#ProductQuantity"/>
+                <service name="moquicon.ProductServices.get#ProductQuantity"/>
             </method>
         </resource>
         <resource name="CategoryProducts">
             <method type="get">
-                <service name="popstore.ProductServices.get#CategoryProducts"/>
+                <service name="moquicon.ProductServices.get#CategoryProducts"/>
             </method>
         </resource>
         <resource name="SearchProducts">
             <method type="get">
-                <service name="popstore.ProductServices.get#SortedProductList"/>
+                <service name="moquicon.ProductServices.get#SortedProductList"/>
             </method>
         </resource>
     </resource>
@@ -137,12 +135,12 @@ along with this software (see the LICENSE.md file). If not, see
         <id name="productCategoryId">
             <resource name="info">
                 <method type="get">
-                    <service name="popstore.ProductServices.get#CategoryInfo"/>
+                    <service name="moquicon.ProductServices.get#CategoryInfo"/>
                 </method>
             </resource>
             <resource name="products">
                 <method type="get">
-                    <service name="popstore.ProductServices.get#CategoryProducts"/>
+                    <service name="moquicon.ProductServices.get#CategoryProducts"/>
                 </method>
             </resource>
         </id>
@@ -153,24 +151,24 @@ along with this software (see the LICENSE.md file). If not, see
     <resource name="cart" require-authentication="anonymous-all">
         <resource name="info">
             <method type="get">
-                <service name="popstore.CartServices.get#CartInfo"/>
+                <service name="moquicon.CartServices.get#CartInfo"/>
             </method>
         </resource>
         <resource name="add">
             <method type="post">
-                <service name="popstore.CartServices.add#Product"/>
+                <service name="moquicon.CartServices.add#Product"/>
             </method>
         </resource>
 
         <resource name="updateProductQuantity">
             <method type="post">
-                <service name="popstore.CartServices.update#OrderProductQuantity"/>
+                <service name="moquicon.CartServices.update#OrderProductQuantity"/>
             </method>
         </resource>
 
         <resource name="deleteOrderItem">
             <method type="delete">
-                <service name="popstore.CartServices.delete#OrderItem"/>
+                <service name="moquicon.CartServices.delete#OrderItem"/>
             </method>
         </resource>
 
@@ -185,18 +183,18 @@ along with this software (see the LICENSE.md file). If not, see
 
         <resource name="shippingOptions">
             <method type="get">
-                <service name="popstore.CartServices.get#ShippingOptions"/>
+                <service name="moquicon.CartServices.get#ShippingOptions"/>
             </method>
         </resource>
         <resource name="billingShipping">
             <method type="post">
-                <service name="popstore.CartServices.set#BillingShippingInfo"/>
+                <service name="moquicon.CartServices.set#BillingShippingInfo"/>
             </method>
         </resource>
 
         <resource name="place">
             <method type="post">
-                <service name="popstore.CartServices.place#CartOrder"/>
+                <service name="moquicon.CartServices.place#CartOrder"/>
             </method>
         </resource>
     </resource>
@@ -207,51 +205,51 @@ along with this software (see the LICENSE.md file). If not, see
         <!-- NOTE: allows current session with customerPartyId server side for customers with no UserAccount (current session only), so auth not required -->
         <resource name="info">
             <method type="get">
-                <service name="popstore.CustomerServices.get#CustomerInfo"/>
+                <service name="moquicon.CustomerServices.get#CustomerInfo"/>
             </method>
         </resource>
         <resource name="updateInfo">
             <method type="put">
-                <service name="popstore.CustomerServices.update#Customer"/>
+                <service name="moquicon.CustomerServices.update#Customer"/>
             </method>
         </resource>
         <resource name="updatePassword" require-authentication="anonymous-all">
             <method type="put">
-                <service name="popstore.CustomerServices.update#CustomerPassword"/>
+                <service name="moquicon.CustomerServices.update#CustomerPassword"/>
             </method>
         </resource>
         <resource name="paymentMethods">
             <method type="get">
-                <service name="popstore.CustomerServices.get#PaymentMethods"/>
+                <service name="moquicon.CustomerServices.get#PaymentMethods"/>
             </method>
             <method type="put">
-                <service name="popstore.CustomerServices.store#CreditCard"/>
+                <service name="moquicon.CustomerServices.store#CreditCard"/>
             </method>
             <id name="paymentMethodId">
                 <method type="delete">
-                    <service name="popstore.CustomerServices.delete#paymentMethod"/>
+                    <service name="moquicon.CustomerServices.delete#paymentMethod"/>
                 </method>
             </id>
         </resource>
         <resource name="shippingAddresses">
             <method type="get">
-                <service name="popstore.CustomerServices.get#ShippingAddresses"/>
+                <service name="moquicon.CustomerServices.get#ShippingAddresses"/>
             </method>
             <method type="put">
-                <service name="popstore.CustomerServices.store#ShippingAddress"/>
+                <service name="moquicon.CustomerServices.store#ShippingAddress"/>
             </method>
             <method type="delete">
-                <service name="popstore.CustomerServices.delete#ShippingAddress"/>
+                <service name="moquicon.CustomerServices.delete#ShippingAddress"/>
             </method>
         </resource>
 
         <resource name="orders">
             <method type="get">
-                <service name="popstore.CartServices.get#CustomerOrders"/>
+                <service name="moquicon.CartServices.get#CustomerOrders"/>
             </method>
             <id name="orderId">
                 <method type="get">
-                    <service name="popstore.CartServices.get#OrderInfo"/>
+                    <service name="moquicon.CartServices.get#OrderInfo"/>
                 </method>
             </id>
         </resource>
