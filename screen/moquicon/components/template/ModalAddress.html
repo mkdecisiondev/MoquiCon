@@ -99,22 +99,13 @@
                         <div class="form-group row justify-content-between">
                             <label for="state" class="col-form-label modal-text ml-3">State<span v-if="shippingAddress.countryGeoId == 'USA' || shippingAddress.countryGeoId == 'IND'">&nbsp;*</span></label>
                             <div class="col-sm-8 col-xs-12">
-                                <select v-if="shippingAddress.countryGeoId == 'USA' || shippingAddress.countryGeoId == 'IND'" id="state"
+                                <select id="state"
                                         v-model="shippingAddress.stateProvinceGeoId"
                                         class="form-control"
                                         @focus="resetStateErrorMessage(shippingAddress.stateProvinceGeoId)"
-                                        required>
+                                        >
                                     <option v-for="region in regionsList" :value="region.geoId">{{region.geoName}}</option>
                                 </select>
-                                <input v-else id="state"
-                                       class="form-control"
-                                       @focus="resetStateErrorMessage(shippingAddress.stateProvinceGeoId)"
-                                       type="text"
-                                       placeholder="Region"
-                                       v-model="shippingAddress.stateProvinceGeoId"/>
-                                <div v-if="stateErrorMessage != null && stateErrorMessage != ''">
-                                    <small class="input-text form-text text-danger">{{stateErrorMessage}}</small>
-                                </div>
                             </div>
                         </div>
                         <!-- Postal code -->
